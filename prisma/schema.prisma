@@ -1,0 +1,161 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   // "productor" | "tecnico" | "monitoreador"
+  createdAt DateTime @default(now())
+
+  establecimientosAsProducer Establecimiento[] @relation("ProductorEstablecimientos")
+  aplicaciones               Aplicacion[]
+  visitasMonitoreo           VisitaMonitoreo[]
+}
+
+model Establecimiento {
+  id          String   @id @default(cuid())
+  codigo      String   @unique
+  nombre      String
+  direccion   String
+  lat         Float?
+  lng         Float?
+  productorId String
+  productor   User     @relation("ProductorEstablecimientos", fields: [productorId], references: [id])
+  createdAt   DateTime @default(now())
+
+  cuadros     Cuadro[]
+}
+
+model Cuadro {
+  id                String   @id @default(cuid())
+  nombre            String
+  variedad          String
+  especie           String
+  superficie        Float
+  coordenadas       String   @default("[]")
+  marcadoMonitoreo  Boolean  @default(false)
+  establecimientoId String
+  establecimiento   Establecimiento @relation(fields: [establecimientoId], references: [id])
+  createdAt         DateTime @default(now())
+
+  aplicaciones     Aplicacion[]
+  trampas          Trampa[]
+  brotes           MonitoreoBrote[]
+  frutos           MonitoreoFruto[]
+}
+
+model Producto {
+  id              String   @id @default(cuid())
+  nombre          String
+  principioActivo String
+  tipoProducto    String
+  carencia        Int
+  createdAt       DateTime @default(now())
+
+  aplicaciones    AplicacionProducto[]
+}
+
+model Aplicacion {
+  id            String   @id @default(cuid())
+  cuadroId      String
+  cuadro        Cuadro   @relation(fields: [cuadroId], references: [id])
+  fecha         DateTime
+  volumenCaldo  Float
+  temperatura   Float?
+  viento        Float?
+  humedad       Float?
+  observaciones String?
+  tecnicoId     String
+  tecnico       User     @relation(fields: [tecnicoId], references: [id])
+  createdAt     DateTime @default(now())
+
+  productos     AplicacionProducto[]
+}
+
+model AplicacionProducto {
+  id           String     @id @default(cuid())
+  aplicacionId String
+  aplicacion   Aplicacion @relation(fields: [aplicacionId], references: [id])
+  productoId   String
+  producto     Producto   @relation(fields: [productoId], references: [id])
+  dosis        Float
+  unidadDosis  String
+}
+
+model Trampa {
+  id        String   @id @default(cuid())
+  numero    String
+  tipo      String
+  lat       Float
+  lng       Float
+  cuadroId  String
+  cuadro    Cuadro   @relation(fields: [cuadroId], references: [id])
+  activa    Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  lecturas  LecturaTrampa[]
+}
+
+model LecturaTrampa {
+  id             String          @id @default(cuid())
+  trampaId       String
+  trampa         Trampa          @relation(fields: [trampaId], references: [id])
+  visitaId       String
+  visita         VisitaMonitoreo @relation(fields: [visitaId], references: [id])
+  fecha          DateTime
+  actividad      String
+  cantidadPlagas Int             @default(0)
+  observaciones  String?
+}
+
+model VisitaMonitoreo {
+  id                     String   @id @default(cuid())
+  fecha                  DateTime
+  monitoreadorId         String
+  monitoreador           User     @relation(fields: [monitoreadorId], references: [id])
+  observacionesGenerales String?
+  createdAt              DateTime @default(now())
+
+  lecturasTrampa LecturaTrampa[]
+  brotes         MonitoreoBrote[]
+  frutos         MonitoreoFruto[]
+}
+
+model MonitoreoBrote {
+  id                 String          @id @default(cuid())
+  cuadroId           String
+  cuadro             Cuadro          @relation(fields: [cuadroId], references: [id])
+  visitaId           String
+  visita             VisitaMonitoreo @relation(fields: [visitaId], references: [id])
+  fecha              DateTime
+  objetivo           String
+  arbolesControlados Int
+  arbolesConDano     Int
+  brotesConDanoNuevo Int
+  brotesConDanoViejo Int
+  observaciones      String?
+}
+
+model MonitoreoFruto {
+  id                String          @id @default(cuid())
+  cuadroId          String
+  cuadro            Cuadro          @relation(fields: [cuadroId], references: [id])
+  visitaId          String
+  visita            VisitaMonitoreo @relation(fields: [visitaId], references: [id])
+  fecha             DateTime
+  objetivo          String
+  frutosControlados Int
+  danoNuevoVivo     Int             @default(0)
+  danoNuevoDano     Int             @default(0)
+  danoViejoMuerto   Int             @default(0)
+  danoViejoDano     Int             @default(0)
+  observaciones     String?
+}
