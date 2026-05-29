@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
 
 export async function POST() {
+  try {
   const hash = (p: string) => bcrypt.hash(p, 10);
 
   // Usuarios
@@ -116,4 +117,8 @@ export async function POST() {
       { email: "monitor@frutiapp.uy", pass: "monitor123", rol: "monitoreador" },
     ],
   });
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : String(e);
+    return NextResponse.json({ error: msg }, { status: 500 });
+  }
 }
