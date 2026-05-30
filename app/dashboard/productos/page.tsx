@@ -11,6 +11,8 @@ export default function ProductosPage() {
   const [showForm, setShowForm] = useState(false);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
+  const [cargandoSATA, setCargandoSATA] = useState(false);
+  const [mensajeSATA, setMensajeSATA] = useState("");
   const [nombre, setNombre] = useState("");
   const [principioActivo, setPrincipioActivo] = useState("");
   const [tipoProducto, setTipoProducto] = useState("Insecticida");
@@ -23,6 +25,16 @@ export default function ProductosPage() {
   }, []);
 
   useEffect(() => { load(); }, [load]);
+
+  async function cargarSATA() {
+    setCargandoSATA(true);
+    setMensajeSATA("");
+    const res = await fetch("/api/productos/seed", { method: "POST" });
+    const data = await res.json();
+    setMensajeSATA(data.mensaje ?? "Listo");
+    setCargandoSATA(false);
+    load();
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -51,15 +63,38 @@ export default function ProductosPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <h1 className="text-2xl font-bold text-gray-900">🧪 Productos fitosanitarios</h1>
-        <button
-          onClick={() => setShowForm(true)}
-          className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium text-sm"
-        >
-          + Nuevo producto
-        </button>
+        <div className="flex gap-2">
+          <button onClick={cargarSATA} disabled={cargandoSATA}
+            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white rounded-lg font-medium text-sm">
+            {cargandoSATA ? "⏳ Cargando..." : "📋 Cargar lista SATA (MGAP Uruguay)"}
+          </button>
+          <button onClick={() => setShowForm(true)}
+            className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium text-sm">
+            + Agregar producto
+          </button>
+        </div>
       </div>
+
+      {mensajeSATA && (
+        <div className="bg-blue-50 border border-blue-200 text-blue-700 px-4 py-3 rounded-xl text-sm font-medium">
+          ✅ {mensajeSATA}
+        </div>
+      )}
+
+      {productos.length === 0 && !loading && (
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 text-center">
+          <p className="font-semibold text-amber-800 mb-1">No hay productos cargados</p>
+          <p className="text-sm text-amber-600 mb-3">
+            Cargá la lista oficial de productos registrados en Uruguay (Guía SATA - MGAP) con un solo click
+          </p>
+          <button onClick={cargarSATA} disabled={cargandoSATA}
+            className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white rounded-xl font-semibold text-sm">
+            {cargandoSATA ? "⏳ Cargando productos..." : "📋 Cargar productos SATA"}
+          </button>
+        </div>
+      )}
 
       {showForm && (
         <div className="bg-white rounded-2xl border border-gray-200 p-6">
