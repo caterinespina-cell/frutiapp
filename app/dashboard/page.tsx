@@ -17,13 +17,17 @@ const ROL_COLOR: Record<string, string> = {
   monitoreador: "bg-amber-100 text-amber-800",
 };
 
+type Clima = { temperatura: number; humedad: number; viento: number; descripcion: string };
+
 export default function DashboardHome() {
   const [user, setUser] = useState<User | null>(null);
   const [stats, setStats] = useState({ cuadros: 0, aplicaciones: 0, visitas: 0 });
   const [seeding, setSeeding] = useState(false);
+  const [clima, setClima] = useState<Clima | null>(null);
 
   useEffect(() => {
     fetch("/api/auth/me").then((r) => r.json()).then(setUser);
+
     Promise.all([
       fetch("/api/cuadros").then((r) => r.json()),
       fetch("/api/aplicaciones").then((r) => r.json()),
@@ -33,6 +37,29 @@ export default function DashboardHome() {
       aplicaciones: Array.isArray(a) ? a.length : 0,
       visitas: Array.isArray(v) ? v.length : 0,
     }));
+
+    // Clima automático al cargar — Melilla, Montevideo
+    fetch(
+      "https://api.open-meteo.com/v1/forecast?latitude=-34.776&longitude=-56.048&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&timezone=America%2FMontevideo"
+    )
+      .then((r) => r.json())
+      .then((data) => {
+        const code = data.current.weather_code;
+        const descripciones: Record<number, string> = {
+          0: "☀️ Despejado", 1: "🌤️ Mayormente despejado", 2: "⛅ Parcialmente nublado",
+          3: "☁️ Nublado", 45: "🌫️ Niebla", 48: "🌫️ Niebla", 51: "🌦️ Llovizna",
+          53: "🌦️ Llovizna", 55: "🌧️ Llovizna intensa", 61: "🌧️ Lluvia leve",
+          63: "🌧️ Lluvia", 65: "🌧️ Lluvia intensa", 71: "🌨️ Nieve leve",
+          80: "🌦️ Chubascos", 81: "🌧️ Chubascos", 95: "⛈️ Tormenta",
+        };
+        setClima({
+          temperatura: data.current.temperature_2m,
+          humedad: data.current.relative_humidity_2m,
+          viento: data.current.wind_speed_10m,
+          descripcion: descripciones[code] ?? "🌤️ Variable",
+        });
+      })
+      .catch(() => {});
   }, []);
 
   async function runSeed() {
@@ -54,9 +81,9 @@ export default function DashboardHome() {
   return (
     <div className="space-y-6 max-w-4xl mx-auto">
 
-      {/* Saludo */}
+      {/* Saludo + Clima */}
       <div className="bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-2xl p-6 text-white shadow-lg">
-        <div className="flex items-center justify-between flex-wrap gap-3">
+        <div className="flex items-center justify-between flex-wrap gap-4">
           <div>
             <p className="text-emerald-100 text-sm mb-1">
               {saludo}, <strong>{user.name.split(" ")[0]}</strong>! 👋
@@ -72,6 +99,36 @@ export default function DashboardHome() {
               {new Date().toLocaleDateString("es-UY", { weekday: "long", day: "numeric", month: "long" })}
             </p>
           </div>
+        </div>
+
+        {/* Clima */}
+        <div className="mt-4 pt-4 border-t border-emerald-400">
+          <p className="text-emerald-100 text-xs mb-2">📍 Melilla, Montevideo</p>
+          {clima ? (
+            <div className="flex flex-wrap gap-4 items-center">
+              <span className="text-lg font-medium">{clima.descripcion}</span>
+              <div className="flex gap-5">
+                <div className="text-center">
+                  <div className="text-3xl font-bold">{clima.temperatura}°C</div>
+                  <div className="text-emerald-200 text-xs">Temperatura</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold">{clima.humedad}%</div>
+                  <div className="text-emerald-200 text-xs">Humedad</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold">{clima.viento}<span className="text-lg"> km/h</span></div>
+                  <div className="text-emerald-200 text-xs">Viento</div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="flex gap-6 animate-pulse">
+              <div className="h-8 w-16 bg-emerald-400 rounded-lg" />
+              <div className="h-8 w-16 bg-emerald-400 rounded-lg" />
+              <div className="h-8 w-20 bg-emerald-400 rounded-lg" />
+            </div>
+          )}
         </div>
       </div>
 
