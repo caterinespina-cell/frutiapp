@@ -2,9 +2,9 @@
 
 import { useEffect, useState, useCallback } from "react";
 import dynamic from "next/dynamic";
-import type { NuevoCuadroPayload, NuevaTrampaPayload } from "@/components/MapaFrutiApp";
+import type { NuevoCuadroPayload, NuevaTrampaPayload } from "@/components/MapaFrutiBook";
 
-const MapaFrutiApp = dynamic(() => import("@/components/MapaFrutiApp"), { ssr: false });
+const MapaFrutiBook = dynamic(() => import("@/components/MapaFrutiBook"), { ssr: false });
 
 type Cuadro = {
   id: string;
@@ -185,7 +185,7 @@ export default function MapaPage() {
       {loading ? (
         <div className="h-[520px] bg-gray-100 rounded-xl animate-pulse" />
       ) : (
-        <MapaFrutiApp
+        <MapaFrutiBook
           cuadros={cuadros}
           onCuadroClick={(c) => handleCuadroClick(c as unknown as Cuadro)}
           showTrampas

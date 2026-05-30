@@ -5,7 +5,7 @@ import "./globals.css";
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
 
 export const metadata: Metadata = {
-  title: "FrutiApp — Gestión Frutícola",
+  title: "FrutiBook — Gestión Frutícola",
   description: "Sistema de gestión para productores frutícolas",
 };
 

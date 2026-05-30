@@ -64,7 +64,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         <div className="flex items-center gap-3 px-5 py-5 border-b border-gray-100">
           <span className="text-3xl">🍑</span>
           <div>
-            <h1 className="font-bold text-gray-900 text-lg leading-tight">FrutiApp</h1>
+            <h1 className="font-bold text-gray-900 text-lg leading-tight">FrutiBook</h1>
             <p className="text-xs text-gray-400">Gestión frutícola</p>
           </div>
         </div>
@@ -122,7 +122,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
           <div className="flex items-center gap-2">
             <span className="text-2xl">🍑</span>
-            <span className="font-bold text-gray-900">FrutiApp</span>
+            <span className="font-bold text-gray-900">FrutiBook</span>
           </div>
           <button onClick={() => setSidebarOpen(false)} className="text-gray-400 text-2xl">×</button>
         </div>
@@ -166,7 +166,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           </button>
           <div className="flex items-center gap-2">
             <span className="text-xl">🍑</span>
-            <span className="font-bold text-gray-900">FrutiApp</span>
+            <span className="font-bold text-gray-900">FrutiBook</span>
           </div>
           <div className="w-8" />
         </header>

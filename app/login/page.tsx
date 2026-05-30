@@ -40,7 +40,7 @@ export default function LoginPage() {
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-emerald-600 mb-4">
             <span className="text-3xl">🍑</span>
           </div>
-          <h1 className="text-3xl font-bold text-gray-900">FrutiApp</h1>
+          <h1 className="text-3xl font-bold text-gray-900">FrutiBook</h1>
           <p className="text-gray-500 mt-1">Sistema de gestión frutícola</p>
         </div>
 
@@ -95,9 +95,9 @@ export default function LoginPage() {
           {/* Demo hint */}
           <div className="mt-6 p-4 bg-gray-50 rounded-lg text-xs text-gray-500 space-y-1">
             <p className="font-medium text-gray-600 mb-2">Usuarios de demo:</p>
-            <p>📦 Productor: productor@frutiapp.uy / productor123</p>
-            <p>🔬 Técnico: tecnico@frutiapp.uy / tecnico123</p>
-            <p>👁️ Monitor: monitor@frutiapp.uy / monitor123</p>
+            <p>📦 Productor: productor@frutibook.uy / productor123</p>
+            <p>🔬 Técnico: tecnico@frutibook.uy / tecnico123</p>
+            <p>👁️ Monitor: monitor@frutibook.uy / monitor123</p>
           </div>
         </div>
       </div>

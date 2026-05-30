@@ -9,19 +9,19 @@ export async function POST() {
   // Usuarios
   const [productor, tecnico, monitoreador] = await Promise.all([
     prisma.user.upsert({
-      where: { email: "productor@frutiapp.uy" },
+      where: { email: "productor@frutibook.uy" },
       update: {},
-      create: { name: "Juan García", email: "productor@frutiapp.uy", password: await hash("productor123"), role: "productor" },
+      create: { name: "Juan García", email: "productor@frutibook.uy", password: await hash("productor123"), role: "productor" },
     }),
     prisma.user.upsert({
-      where: { email: "tecnico@frutiapp.uy" },
+      where: { email: "tecnico@frutibook.uy" },
       update: {},
-      create: { name: "María López", email: "tecnico@frutiapp.uy", password: await hash("tecnico123"), role: "tecnico" },
+      create: { name: "María López", email: "tecnico@frutibook.uy", password: await hash("tecnico123"), role: "tecnico" },
     }),
     prisma.user.upsert({
-      where: { email: "monitor@frutiapp.uy" },
+      where: { email: "monitor@frutibook.uy" },
       update: {},
-      create: { name: "Carlos Pérez", email: "monitor@frutiapp.uy", password: await hash("monitor123"), role: "monitoreador" },
+      create: { name: "Carlos Pérez", email: "monitor@frutibook.uy", password: await hash("monitor123"), role: "monitoreador" },
     }),
   ]);
 
@@ -136,9 +136,9 @@ export async function POST() {
   return NextResponse.json({
     ok: true,
     usuarios: [
-      { email: "productor@frutiapp.uy", pass: "productor123", rol: "productor" },
-      { email: "tecnico@frutiapp.uy", pass: "tecnico123", rol: "técnico" },
-      { email: "monitor@frutiapp.uy", pass: "monitor123", rol: "monitoreador" },
+      { email: "productor@frutibook.uy", pass: "productor123", rol: "productor" },
+      { email: "tecnico@frutibook.uy", pass: "tecnico123", rol: "técnico" },
+      { email: "monitor@frutibook.uy", pass: "monitor123", rol: "monitoreador" },
     ],
   });
   } catch (e) {
