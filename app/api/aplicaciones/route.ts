@@ -20,32 +20,51 @@ export async function GET() {
 
 export async function POST(req: Request) {
   const session = await getSession();
-  if (!session || session.role !== "tecnico") {
-    return NextResponse.json({ error: "Solo técnicos pueden registrar aplicaciones" }, { status: 403 });
+  // Productores y técnicos pueden registrar aplicaciones
+  if (!session || (session.role !== "tecnico" && session.role !== "productor")) {
+    return NextResponse.json({ error: "No autorizado" }, { status: 403 });
   }
 
   const body = await req.json();
 
-  const aplicacion = await prisma.aplicacion.create({
-    data: {
-      cuadroId: body.cuadroId,
-      fecha: new Date(body.fecha),
-      volumenCaldo: body.volumenCaldo,
-      temperatura: body.temperatura ?? null,
-      viento: body.viento ?? null,
-      humedad: body.humedad ?? null,
-      observaciones: body.observaciones ?? null,
-      tecnicoId: session.id,
-      productos: {
-        create: body.productos.map((p: { productoId: string; dosis: number; unidadDosis: string }) => ({
-          productoId: p.productoId,
-          dosis: p.dosis,
-          unidadDosis: p.unidadDosis,
-        })),
-      },
-    },
-    include: { productos: { include: { producto: true } } },
-  });
+  // Soporta un cuadro (cuadroId) o múltiples (cuadroIds[])
+  const cuadroIds: string[] = body.cuadroIds?.length
+    ? body.cuadroIds
+    : body.cuadroId
+    ? [body.cuadroId]
+    : [];
 
-  return NextResponse.json(aplicacion);
+  if (!cuadroIds.length) {
+    return NextResponse.json({ error: "Seleccioná al menos un cuadro" }, { status: 400 });
+  }
+
+  // Crear una aplicación por cuadro con los mismos datos
+  const aplicaciones = await Promise.all(
+    cuadroIds.map((cuadroId) =>
+      prisma.aplicacion.create({
+        data: {
+          cuadroId,
+          fecha: new Date(body.fecha),
+          volumenCaldo: body.volumenCaldo,
+          temperatura: body.temperatura ?? null,
+          viento: body.viento ?? null,
+          humedad: body.humedad ?? null,
+          observaciones: body.observaciones ?? null,
+          tecnicoId: session.id,
+          productos: {
+            create: body.productos.map(
+              (p: { productoId: string; dosis: number; unidadDosis: string }) => ({
+                productoId: p.productoId,
+                dosis: p.dosis,
+                unidadDosis: p.unidadDosis,
+              })
+            ),
+          },
+        },
+        include: { productos: { include: { producto: true } } },
+      })
+    )
+  );
+
+  return NextResponse.json(aplicaciones);
 }
