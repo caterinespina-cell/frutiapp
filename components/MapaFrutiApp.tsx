@@ -97,6 +97,15 @@ export default function MapaFrutiApp({
   useEffect(() => {
     if (!ready || !mapRef.current || mapInstance.current) return;
 
+    // Inyectar CSS de Leaflet si no está cargado
+    if (!document.getElementById("leaflet-css")) {
+      const link = document.createElement("link");
+      link.id = "leaflet-css";
+      link.rel = "stylesheet";
+      link.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+      document.head.appendChild(link);
+    }
+
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     const L = require("leaflet");
 
