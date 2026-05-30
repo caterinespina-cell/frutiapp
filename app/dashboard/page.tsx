@@ -6,6 +6,7 @@ import Link from "next/link";
 type User = { name: string; role: string };
 type ClimaActual = { temperatura: number; humedad: number; viento: number; descripcion: string };
 type DiaPronos = { fecha: string; lluvia: number; probLluvia: number; weatherCode: number };
+type HoraLluvia = { hora: string; prob: number; mm: number };
 type RegistroClima = { id: string; fecha: string; precipitacion?: number; granizo: boolean; vientoFuerte: boolean; helada: boolean; observaciones?: string; user: { name: string } };
 
 const WEATHER_DESC: Record<number, string> = {
@@ -23,6 +24,7 @@ export default function DashboardHome() {
   const [stats, setStats] = useState({ cuadros: 0, aplicaciones: 0, visitas: 0 });
   const [clima, setClima] = useState<ClimaActual | null>(null);
   const [pronostico, setPronostico] = useState<DiaPronos[]>([]);
+  const [horasLluvia, setHorasLluvia] = useState<HoraLluvia[]>([]);
   const [registros, setRegistros] = useState<RegistroClima[]>([]);
   const [showForm, setShowForm] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -51,8 +53,8 @@ export default function DashboardHome() {
       visitas: Array.isArray(v) ? v.length : 0,
     }));
 
-    // Clima + pronóstico 7 días
-    fetch("https://api.open-meteo.com/v1/forecast?latitude=-34.776&longitude=-56.048&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&daily=precipitation_sum,precipitation_probability_max,weather_code&timezone=America%2FMontevideo&forecast_days=7")
+    // Clima actual + pronóstico 7 días + horas de lluvia hoy
+    fetch("https://api.open-meteo.com/v1/forecast?latitude=-34.776&longitude=-56.048&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&daily=precipitation_sum,precipitation_probability_max,weather_code&hourly=precipitation_probability,precipitation&timezone=America%2FMontevideo&forecast_days=2")
       .then((r) => r.json())
       .then((data) => {
         setClima({
@@ -67,6 +69,18 @@ export default function DashboardHome() {
           probLluvia: data.daily.precipitation_probability_max[i] ?? 0,
           weatherCode: data.daily.weather_code[i] ?? 0,
         })));
+
+        // Horas con lluvia probable hoy (próximas 24h desde ahora)
+        const ahoraISO = new Date().toISOString().slice(0, 13); // "2026-05-29T22"
+        const horas: HoraLluvia[] = data.hourly.time
+          .map((t: string, i: number) => ({
+            hora: t,
+            prob: data.hourly.precipitation_probability[i] ?? 0,
+            mm: data.hourly.precipitation[i] ?? 0,
+          }))
+          .filter((h: HoraLluvia) => h.hora >= ahoraISO && h.hora <= ahoraISO.slice(0, 10) + "T23")
+          .filter((h: HoraLluvia) => h.prob >= 20); // solo si hay posibilidad real
+        setHorasLluvia(horas);
       }).catch(() => {});
 
     loadRegistros();
@@ -144,6 +158,34 @@ export default function DashboardHome() {
           <div className="flex gap-4 animate-pulse mb-4">
             <div className="h-12 w-24 bg-slate-600 rounded-xl" />
             <div className="h-12 w-16 bg-slate-600 rounded-xl" />
+          </div>
+        )}
+
+        {/* Lluvia de hoy por hora */}
+        {horasLluvia.length > 0 && (
+          <div className="border-t border-slate-600 pt-3 mb-3">
+            <p className="text-slate-300 text-xs mb-2 font-medium">🌧️ Lluvia esperada hoy</p>
+            <div className="flex flex-wrap gap-2">
+              {horasLluvia.map((h) => {
+                const horaLocal = new Date(h.hora + ":00").getHours();
+                const ampm = horaLocal >= 12 ? "pm" : "am";
+                const hora12 = horaLocal % 12 || 12;
+                return (
+                  <div key={h.hora}
+                    className={`text-center px-3 py-1.5 rounded-xl text-xs font-medium ${h.prob >= 60 ? "bg-blue-500 text-white" : "bg-slate-600 text-slate-200"}`}>
+                    <div className="font-bold">{hora12}{ampm}</div>
+                    <div>{h.prob}%</div>
+                    {h.mm > 0 && <div className="text-blue-200">{h.mm}mm</div>}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {clima && horasLluvia.length === 0 && (
+          <div className="border-t border-slate-600 pt-3 mb-3">
+            <p className="text-slate-400 text-xs">✅ Sin lluvia esperada para hoy</p>
           </div>
         )}
 
