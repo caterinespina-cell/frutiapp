@@ -19,6 +19,27 @@ type Aplicacion = {
   productos: Array<{ producto: Producto; dosis: number; unidadDosis: string }>;
 };
 
+type ClimaActual = { temperatura: number; humedad: number; viento: number };
+
+// Melilla, Montevideo
+const LAT = -34.776;
+const LNG = -56.048;
+
+async function fetchClima(): Promise<ClimaActual | null> {
+  try {
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LNG}&current=temperature_2m,relative_humidity_2m,wind_speed_10m&timezone=America%2FMontevideo`;
+    const res = await fetch(url);
+    const data = await res.json();
+    return {
+      temperatura: data.current.temperature_2m,
+      humedad: data.current.relative_humidity_2m,
+      viento: data.current.wind_speed_10m,
+    };
+  } catch {
+    return null;
+  }
+}
+
 function AplicacionesContent() {
   const searchParams = useSearchParams();
   const [user, setUser] = useState<{ role: string; name: string } | null>(null);
@@ -29,14 +50,13 @@ function AplicacionesContent() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [cargandoClima, setCargandoClima] = useState(false);
 
   // Form state
   const [cuadrosSeleccionados, setCuadrosSeleccionados] = useState<string[]>([]);
   const [fecha, setFecha] = useState(new Date().toISOString().split("T")[0]);
   const [volumenCaldo, setVolumenCaldo] = useState("");
-  const [temperatura, setTemperatura] = useState("");
-  const [viento, setViento] = useState("");
-  const [humedad, setHumedad] = useState("");
+  const [clima, setClima] = useState<ClimaActual | null>(null);
   const [observaciones, setObservaciones] = useState("");
   const [productosForm, setProductosForm] = useState([
     { productoId: "", dosis: "", unidadDosis: "cc/L" },
@@ -63,10 +83,19 @@ function AplicacionesContent() {
     );
   }
 
+  async function obtenerClima() {
+    setCargandoClima(true);
+    const c = await fetchClima();
+    setClima(c);
+    setCargandoClima(false);
+  }
+
   function resetForm() {
     setCuadrosSeleccionados([]);
     setFecha(new Date().toISOString().split("T")[0]);
-    setVolumenCaldo(""); setTemperatura(""); setViento(""); setHumedad(""); setObservaciones("");
+    setVolumenCaldo("");
+    setClima(null);
+    setObservaciones("");
     setProductosForm([{ productoId: "", dosis: "", unidadDosis: "cc/L" }]);
     setError(""); setSuccess("");
   }
@@ -74,6 +103,7 @@ function AplicacionesContent() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!cuadrosSeleccionados.length) { setError("Seleccioná al menos un cuadro"); return; }
+    if (!productosForm.some((p) => p.productoId)) { setError("Agregá al menos un producto"); return; }
     setSubmitting(true);
     setError("");
 
@@ -83,16 +113,18 @@ function AplicacionesContent() {
       body: JSON.stringify({
         cuadroIds: cuadrosSeleccionados,
         fecha,
-        volumenCaldo: parseFloat(volumenCaldo),
-        temperatura: temperatura ? parseFloat(temperatura) : null,
-        viento: viento ? parseFloat(viento) : null,
-        humedad: humedad ? parseFloat(humedad) : null,
+        volumenCaldo: parseFloat(volumenCaldo) || 0,
+        temperatura: clima?.temperatura ?? null,
+        viento: clima?.viento ?? null,
+        humedad: clima?.humedad ?? null,
         observaciones: observaciones || null,
-        productos: productosForm.filter((p) => p.productoId).map((p) => ({
-          productoId: p.productoId,
-          dosis: parseFloat(p.dosis),
-          unidadDosis: p.unidadDosis,
-        })),
+        productos: productosForm
+          .filter((p) => p.productoId && p.dosis)
+          .map((p) => ({
+            productoId: p.productoId,
+            dosis: parseFloat(p.dosis),
+            unidadDosis: p.unidadDosis,
+          })),
       }),
     });
 
@@ -125,7 +157,7 @@ function AplicacionesContent() {
         <h1 className="text-2xl font-bold text-gray-900">💊 Aplicaciones fitosanitarias</h1>
         {canRegister && !showForm && (
           <button onClick={() => setShowForm(true)}
-            className="px-5 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl font-medium text-sm shadow-sm">
+            className="px-5 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl font-semibold text-sm shadow-sm">
             + Nueva aplicación
           </button>
         )}
@@ -145,11 +177,11 @@ function AplicacionesContent() {
           <form onSubmit={handleSubmit} className="space-y-6">
 
             {/* PASO 1: Cuadros */}
-            <div>
-              <h3 className="font-medium text-gray-700 mb-3">
+            <div className="bg-gray-50 rounded-xl p-4">
+              <h3 className="font-semibold text-gray-700 mb-1">
                 1️⃣ ¿En qué cuadros se aplicó?
-                <span className="ml-2 text-sm font-normal text-gray-400">(podés seleccionar varios)</span>
               </h3>
+              <p className="text-sm text-gray-400 mb-3">Podés seleccionar uno o varios cuadros a la vez</p>
 
               {cuadros.length === 0 ? (
                 <p className="text-gray-400 text-sm">No hay cuadros registrados. Primero agregá cuadros en el Mapa.</p>
@@ -157,23 +189,23 @@ function AplicacionesContent() {
                 <div className="space-y-3">
                   {Object.values(cuadrosPorEstab).map(({ estab, cuadros: cs }) => (
                     <div key={estab}>
-                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">{estab}</p>
+                      <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">{estab}</p>
                       <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                         {cs.map((c) => {
                           const sel = cuadrosSeleccionados.includes(c.id);
                           return (
                             <button key={c.id} type="button" onClick={() => toggleCuadro(c.id)}
-                              className={`flex items-center gap-2 px-3 py-2.5 rounded-xl border-2 text-left transition-all ${
-                                sel
-                                  ? "border-purple-500 bg-purple-50 text-purple-800"
-                                  : "border-gray-200 bg-white text-gray-700 hover:border-purple-300"
+                              className={`flex items-center gap-3 px-4 py-3 rounded-xl border-2 text-left transition-all ${
+                                sel ? "border-purple-500 bg-purple-50" : "border-gray-200 bg-white hover:border-purple-300"
                               }`}>
-                              <span className={`w-5 h-5 rounded border-2 flex-shrink-0 flex items-center justify-center ${sel ? "border-purple-500 bg-purple-500" : "border-gray-300"}`}>
-                                {sel && <span className="text-white text-xs font-bold">✓</span>}
+                              <span className={`w-6 h-6 rounded border-2 flex-shrink-0 flex items-center justify-center text-white font-bold text-sm ${
+                                sel ? "border-purple-500 bg-purple-500" : "border-gray-300"
+                              }`}>
+                                {sel ? "✓" : ""}
                               </span>
-                              <div className="min-w-0">
-                                <p className="font-medium text-sm truncate">{c.nombre}</p>
-                                <p className="text-xs text-gray-400 truncate capitalize">{c.variedad} · {c.especie}</p>
+                              <div>
+                                <p className={`font-semibold text-sm ${sel ? "text-purple-700" : "text-gray-800"}`}>{c.nombre}</p>
+                                <p className="text-xs text-gray-400 capitalize">{c.variedad} · {c.especie}</p>
                               </div>
                             </button>
                           );
@@ -185,38 +217,41 @@ function AplicacionesContent() {
               )}
 
               {cuadrosSeleccionados.length > 0 && (
-                <p className="text-sm text-purple-600 font-medium mt-2">
+                <p className="text-sm text-purple-600 font-semibold mt-3">
                   ✓ {cuadrosSeleccionados.length} cuadro{cuadrosSeleccionados.length > 1 ? "s" : ""} seleccionado{cuadrosSeleccionados.length > 1 ? "s" : ""}
                 </p>
               )}
             </div>
 
             {/* PASO 2: Productos */}
-            <div>
+            <div className="bg-gray-50 rounded-xl p-4">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="font-medium text-gray-700">2️⃣ ¿Qué productos se aplicaron?</h3>
+                <div>
+                  <h3 className="font-semibold text-gray-700">2️⃣ Productos aplicados</h3>
+                  <p className="text-sm text-gray-400">Podés agregar todos los productos que se usaron</p>
+                </div>
                 <button type="button"
                   onClick={() => setProductosForm([...productosForm, { productoId: "", dosis: "", unidadDosis: "cc/L" }])}
-                  className="text-sm text-purple-600 hover:text-purple-800 font-medium">
-                  + Agregar otro producto
+                  className="px-3 py-1.5 text-sm bg-purple-100 text-purple-700 hover:bg-purple-200 rounded-lg font-medium">
+                  + Agregar producto
                 </button>
               </div>
 
               {productos.length === 0 ? (
-                <p className="text-gray-400 text-sm">No hay productos cargados. El técnico debe cargarlos en "Productos".</p>
+                <p className="text-gray-400 text-sm">No hay productos cargados aún.</p>
               ) : (
                 <div className="space-y-2">
                   {productosForm.map((prod, idx) => (
-                    <div key={idx} className="flex gap-2 items-start bg-gray-50 rounded-xl p-3">
+                    <div key={idx} className="flex gap-2 items-end bg-white rounded-xl border border-gray-200 p-3">
                       <div className="flex-1">
-                        <label className="block text-xs text-gray-500 mb-1">Producto</label>
+                        <label className="block text-xs text-gray-500 mb-1">Producto {idx + 1}</label>
                         <select value={prod.productoId}
                           onChange={(e) => { const u = [...productosForm]; u[idx].productoId = e.target.value; setProductosForm(u); }}
-                          className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500">
-                          <option value="">Seleccionar...</option>
+                          className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500">
+                          <option value="">Seleccionar producto...</option>
                           {productos.map((p) => (
                             <option key={p.id} value={p.id}>
-                              {p.nombre} — {p.tipoProducto} (carencia {p.carencia}d)
+                              {p.nombre} ({p.tipoProducto})
                             </option>
                           ))}
                         </select>
@@ -225,13 +260,13 @@ function AplicacionesContent() {
                         <label className="block text-xs text-gray-500 mb-1">Dosis</label>
                         <input type="number" step="0.01" placeholder="0" value={prod.dosis}
                           onChange={(e) => { const u = [...productosForm]; u[idx].dosis = e.target.value; setProductosForm(u); }}
-                          className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500" />
+                          className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500" />
                       </div>
                       <div className="w-24">
                         <label className="block text-xs text-gray-500 mb-1">Unidad</label>
                         <select value={prod.unidadDosis}
                           onChange={(e) => { const u = [...productosForm]; u[idx].unidadDosis = e.target.value; setProductosForm(u); }}
-                          className="w-full border border-gray-300 rounded-lg px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500">
+                          className="w-full border border-gray-300 rounded-lg px-2 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500">
                           <option>cc/L</option>
                           <option>kg/ha</option>
                           <option>L/ha</option>
@@ -239,8 +274,9 @@ function AplicacionesContent() {
                         </select>
                       </div>
                       {productosForm.length > 1 && (
-                        <button type="button" onClick={() => setProductosForm(productosForm.filter((_, i) => i !== idx))}
-                          className="mt-6 text-red-400 hover:text-red-600 text-xl px-1">×</button>
+                        <button type="button"
+                          onClick={() => setProductosForm(productosForm.filter((_, i) => i !== idx))}
+                          className="pb-1 text-red-400 hover:text-red-600 text-2xl font-light">×</button>
                       )}
                     </div>
                   ))}
@@ -248,49 +284,77 @@ function AplicacionesContent() {
               )}
             </div>
 
-            {/* PASO 3: Condiciones */}
-            <div>
-              <h3 className="font-medium text-gray-700 mb-3">3️⃣ Fecha y condiciones</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                <div className="md:col-span-2">
-                  <label className="block text-xs text-gray-500 mb-1">Fecha de aplicación *</label>
+            {/* PASO 3: Fecha, volumen y clima */}
+            <div className="bg-gray-50 rounded-xl p-4">
+              <h3 className="font-semibold text-gray-700 mb-3">3️⃣ Fecha y condiciones</h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-600 mb-1">Fecha de aplicación *</label>
                   <input type="date" required value={fecha} onChange={(e) => setFecha(e.target.value)}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500" />
+                    className="w-full border border-gray-300 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500" />
                 </div>
                 <div>
-                  <label className="block text-xs text-gray-500 mb-1">Volumen (L/ha) *</label>
-                  <input type="number" required step="0.1" placeholder="500" value={volumenCaldo} onChange={(e) => setVolumenCaldo(e.target.value)}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500" />
+                  <label className="block text-sm font-medium text-gray-600 mb-1">Volumen de caldo (L/ha)</label>
+                  <input type="number" step="0.1" placeholder="Ej: 500" value={volumenCaldo}
+                    onChange={(e) => setVolumenCaldo(e.target.value)}
+                    className="w-full border border-gray-300 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500" />
                 </div>
-                <div>
-                  <label className="block text-xs text-gray-500 mb-1">Temperatura (°C)</label>
-                  <input type="number" step="0.1" placeholder="22" value={temperatura} onChange={(e) => setTemperatura(e.target.value)}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500" />
+              </div>
+
+              {/* Clima */}
+              <div className="border border-sky-200 bg-sky-50 rounded-xl p-4">
+                <div className="flex items-center justify-between mb-3">
+                  <div>
+                    <p className="font-medium text-sky-800">🌤️ Condiciones climáticas</p>
+                    <p className="text-xs text-sky-600">Melilla, Montevideo — datos actuales</p>
+                  </div>
+                  <button type="button" onClick={obtenerClima} disabled={cargandoClima}
+                    className="px-4 py-2 bg-sky-500 hover:bg-sky-600 disabled:bg-sky-300 text-white rounded-lg text-sm font-medium transition-colors">
+                    {cargandoClima ? "Obteniendo..." : "📡 Obtener clima actual"}
+                  </button>
                 </div>
-                <div>
-                  <label className="block text-xs text-gray-500 mb-1">Viento (km/h)</label>
-                  <input type="number" step="0.1" placeholder="10" value={viento} onChange={(e) => setViento(e.target.value)}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500" />
-                </div>
-                <div>
-                  <label className="block text-xs text-gray-500 mb-1">Humedad (%)</label>
-                  <input type="number" min="0" max="100" placeholder="65" value={humedad} onChange={(e) => setHumedad(e.target.value)}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500" />
-                </div>
-                <div className="md:col-span-2">
-                  <label className="block text-xs text-gray-500 mb-1">Observaciones</label>
-                  <input placeholder="Ej: aplicación preventiva" value={observaciones} onChange={(e) => setObservaciones(e.target.value)}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500" />
-                </div>
+
+                {clima ? (
+                  <div className="grid grid-cols-3 gap-3">
+                    <div className="bg-white rounded-xl p-3 text-center border border-sky-100">
+                      <div className="text-2xl font-bold text-orange-500">{clima.temperatura}°C</div>
+                      <div className="text-xs text-gray-500 mt-1">Temperatura</div>
+                    </div>
+                    <div className="bg-white rounded-xl p-3 text-center border border-sky-100">
+                      <div className="text-2xl font-bold text-blue-500">{clima.humedad}%</div>
+                      <div className="text-xs text-gray-500 mt-1">Humedad</div>
+                    </div>
+                    <div className="bg-white rounded-xl p-3 text-center border border-sky-100">
+                      <div className="text-2xl font-bold text-teal-500">{clima.viento} km/h</div>
+                      <div className="text-xs text-gray-500 mt-1">Viento</div>
+                    </div>
+                  </div>
+                ) : (
+                  <p className="text-sm text-sky-600 text-center py-2">
+                    Presioná el botón para traer temperatura, humedad y viento actuales
+                  </p>
+                )}
+              </div>
+
+              <div className="mt-3">
+                <label className="block text-sm font-medium text-gray-600 mb-1">Observaciones</label>
+                <input placeholder="Ej: aplicación preventiva post lluvia" value={observaciones}
+                  onChange={(e) => setObservaciones(e.target.value)}
+                  className="w-full border border-gray-300 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500" />
               </div>
             </div>
 
-            {error && <div className="bg-red-50 text-red-600 text-sm px-4 py-3 rounded-xl">{error}</div>}
+            {error && <div className="bg-red-50 text-red-600 text-sm px-4 py-3 rounded-xl border border-red-200">{error}</div>}
 
-            <div className="flex gap-3 pt-2">
+            <div className="flex gap-3">
               <button type="submit" disabled={submitting || !cuadrosSeleccionados.length}
-                className="px-8 py-3 bg-purple-600 hover:bg-purple-700 disabled:bg-purple-300 text-white font-semibold rounded-xl text-base shadow-sm">
-                {submitting ? "Guardando..." : `Guardar aplicación${cuadrosSeleccionados.length > 1 ? ` (${cuadrosSeleccionados.length} cuadros)` : ""}`}
+                className="flex-1 md:flex-none px-8 py-3 bg-purple-600 hover:bg-purple-700 disabled:bg-purple-300 text-white font-bold rounded-xl text-base shadow-sm">
+                {submitting
+                  ? "Guardando..."
+                  : cuadrosSeleccionados.length > 1
+                  ? `💾 Guardar en ${cuadrosSeleccionados.length} cuadros`
+                  : "💾 Guardar aplicación"}
               </button>
               <button type="button" onClick={() => { setShowForm(false); resetForm(); }}
                 className="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-xl">
@@ -301,44 +365,45 @@ function AplicacionesContent() {
         </div>
       )}
 
-      {/* Lista de aplicaciones */}
+      {/* Lista */}
       <div className="space-y-3">
         {aplicaciones.length === 0 ? (
-          <div className="text-center py-16 text-gray-400 bg-white rounded-2xl border">
-            <div className="text-5xl mb-3">💊</div>
-            <p className="font-medium text-gray-500">No hay aplicaciones registradas</p>
-            {canRegister && <p className="text-sm mt-1">Usá el botón "Nueva aplicación" para registrar la primera</p>}
+          <div className="text-center py-16 bg-white rounded-2xl border border-gray-200">
+            <div className="text-6xl mb-3">💊</div>
+            <p className="font-semibold text-gray-500 text-lg">Sin aplicaciones registradas</p>
+            {canRegister && <p className="text-sm text-gray-400 mt-1">Usá el botón de arriba para registrar la primera</p>}
           </div>
         ) : (
           aplicaciones.map((a) => (
             <div key={a.id} className="bg-white rounded-xl border border-gray-200 p-4 hover:border-purple-200 transition-colors">
-              <div className="flex items-start justify-between">
+              <div className="flex items-start justify-between gap-2">
                 <div>
                   <h3 className="font-semibold text-gray-900">
                     {a.cuadro.establecimiento.nombre} — <span className="text-purple-700">{a.cuadro.nombre}</span>
                   </h3>
                   <p className="text-sm text-gray-400 capitalize">{a.cuadro.variedad}</p>
                 </div>
-                <div className="text-right">
-                  <span className="font-semibold text-gray-800">{new Date(a.fecha).toLocaleDateString("es-UY", { day: "numeric", month: "short", year: "numeric" })}</span>
-                  <p className="text-xs text-gray-400 mt-0.5">por {a.tecnico.name}</p>
+                <div className="text-right flex-shrink-0">
+                  <span className="font-semibold text-gray-800 text-sm">
+                    {new Date(a.fecha).toLocaleDateString("es-UY", { day: "numeric", month: "short", year: "numeric" })}
+                  </span>
+                  <p className="text-xs text-gray-400">{a.tecnico.name}</p>
                 </div>
               </div>
 
               <div className="flex flex-wrap gap-2 mt-3">
                 {a.productos.map((p, i) => (
-                  <span key={i} className="inline-flex items-center gap-1 text-xs bg-purple-50 text-purple-700 border border-purple-200 px-3 py-1 rounded-full">
-                    <strong>{p.producto.nombre}</strong> — {p.dosis} {p.unidadDosis}
-                    <span className="text-purple-400 ml-1">carencia {p.producto.carencia}d</span>
+                  <span key={i} className="inline-flex items-center gap-1.5 text-xs bg-purple-50 text-purple-700 border border-purple-200 px-3 py-1.5 rounded-full font-medium">
+                    {p.producto.nombre} — {p.dosis} {p.unidadDosis}
                   </span>
                 ))}
               </div>
 
               <div className="flex flex-wrap gap-4 mt-2 text-xs text-gray-400">
-                <span>💧 {a.volumenCaldo} L/ha</span>
+                {a.volumenCaldo > 0 && <span>💧 {a.volumenCaldo} L/ha</span>}
                 {a.temperatura != null && <span>🌡️ {a.temperatura}°C</span>}
-                {a.viento != null && <span>💨 {a.viento} km/h</span>}
                 {a.humedad != null && <span>💦 {a.humedad}%</span>}
+                {a.viento != null && <span>💨 {a.viento} km/h</span>}
                 {a.observaciones && <span className="italic">"{a.observaciones}"</span>}
               </div>
             </div>
