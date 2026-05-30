@@ -30,7 +30,6 @@ type Props = {
   cuadros: Cuadro[];
   onCuadroClick?: (cuadro: Cuadro) => void;
   showTrampas?: boolean;
-  // Modo edición
   modoEdicion?: "ninguno" | "cuadro" | "trampa";
   onNuevoCuadro?: (payload: NuevoCuadroPayload) => void;
   onNuevaTrampa?: (payload: NuevaTrampaPayload) => void;
@@ -46,21 +45,22 @@ const ESPECIE_COLORS: Record<string, string> = {
   default: "#6b7280",
 };
 
-// Calcula área de polígono en m² usando fórmula de Shoelace con lat/lng
-function calcularAreaSqm(coords: [number, number][]): number {
+function calcularAreaHa(coords: [number, number][]): number {
   if (coords.length < 3) return 0;
-  const R = 6371000; // Radio tierra en metros
+  const R = 6371000;
   let area = 0;
   for (let i = 0; i < coords.length; i++) {
     const j = (i + 1) % coords.length;
     const lat1 = (coords[i][0] * Math.PI) / 180;
     const lat2 = (coords[j][0] * Math.PI) / 180;
     const dlng = ((coords[j][1] - coords[i][1]) * Math.PI) / 180;
-    area += Math.sin(dlng) * Math.cos(lat2);
-    area *= R * R;
+    area += Math.sin(dlng) * (Math.cos(lat1) + Math.cos(lat2));
   }
-  return Math.abs(area) / 2;
+  return Math.abs(area * R * R) / 2 / 10000;
 }
+
+// Centro de Melilla, Montevideo
+const MELILLA_CENTER: [number, number] = [-34.776, -56.048];
 
 export default function MapaFrutiApp({
   cuadros,
@@ -74,10 +74,15 @@ export default function MapaFrutiApp({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const mapInstance = useRef<any>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const drawControlRef = useRef<any>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const drawnLayersRef = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const drawingPointsRef = useRef<[number, number][]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const drawingMarkersRef = useRef<any[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const drawingPolyRef = useRef<any>(null);
   const [ready, setReady] = useState(false);
+  const [puntosActuales, setPuntosActuales] = useState(0);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -91,7 +96,6 @@ export default function MapaFrutiApp({
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     const L = require("leaflet");
 
-    // Fix default icons
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     delete (L.Icon.Default.prototype as any)._getIconUrl;
     L.Icon.Default.mergeOptions({
@@ -100,8 +104,8 @@ export default function MapaFrutiApp({
       shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
     });
 
-    // Melilla, Montevideo
-    const map = L.map(mapRef.current, { zoomControl: true }).setView([-34.776, -56.048], 14);
+    const map = L.map(mapRef.current, { zoomControl: true, doubleClickZoom: false })
+      .setView(MELILLA_CENTER, 14);
 
     const osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "© OpenStreetMap contributors",
@@ -113,10 +117,10 @@ export default function MapaFrutiApp({
       { attribution: "© Esri", maxZoom: 20 }
     );
 
-    osm.addTo(map);
-    L.control.layers({ "Mapa": osm, "Satélite": satellite }, {}).addTo(map);
+    // Empezar con satélite para ver los cuadros reales
+    satellite.addTo(map);
+    L.control.layers({ "Satélite": satellite, "Mapa": osm }, {}).addTo(map);
 
-    // Capa para dibujos
     const drawnItems = new L.FeatureGroup();
     map.addLayer(drawnItems);
     drawnLayersRef.current = drawnItems;
@@ -126,103 +130,115 @@ export default function MapaFrutiApp({
     return () => {
       map.remove();
       mapInstance.current = null;
-      drawControlRef.current = null;
       drawnLayersRef.current = null;
     };
   }, [ready]);
 
-  // Gestionar modo edición (dibujo de cuadros / trampas)
-  useEffect(() => {
-    if (!ready || !mapInstance.current) return;
-    const map = mapInstance.current;
+  // Limpiar dibujo en progreso
+  const limpiarDibujo = useCallback(() => {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     const L = require("leaflet");
-
-    // Quitar control anterior
-    if (drawControlRef.current) {
-      map.removeControl(drawControlRef.current);
-      drawControlRef.current = null;
+    const map = mapInstance.current;
+    if (!map) return;
+    drawingMarkersRef.current.forEach((m) => map.removeLayer(m));
+    drawingMarkersRef.current = [];
+    if (drawingPolyRef.current) {
+      map.removeLayer(drawingPolyRef.current);
+      drawingPolyRef.current = null;
     }
-
-    // Quitar listeners previos
-    map.off("draw:created");
+    drawingPointsRef.current = [];
+    setPuntosActuales(0);
+    // Quitar listeners
     map.off("click");
+    map.off("dblclick");
+    map.getContainer().style.cursor = "";
+    // Re-habilitar doble click zoom
+    map.doubleClickZoom.enable();
+  }, []);
 
-    if (modoEdicion === "cuadro" && drawnLayersRef.current) {
-      // Cargar leaflet-draw y su CSS
-      require("leaflet-draw");
-      // Inyectar CSS de leaflet-draw si no está
-      if (!document.getElementById("leaflet-draw-css")) {
-        const link = document.createElement("link");
-        link.id = "leaflet-draw-css";
-        link.rel = "stylesheet";
-        link.href = "https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css";
-        document.head.appendChild(link);
-      }
+  // Cerrar polígono y guardar
+  const cerrarPoligono = useCallback(() => {
+    const pts = drawingPointsRef.current;
+    if (pts.length < 3) return;
+    const areaHa = calcularAreaHa(pts);
+    onNuevoCuadro?.({ coordenadas: [...pts], areaSqm: areaHa * 10000 });
+    limpiarDibujo();
+  }, [onNuevoCuadro, limpiarDibujo]);
 
-      const drawControl = new L.Control.Draw({
-        position: "topright",
-        draw: {
-          polygon: {
-            allowIntersection: false,
-            showArea: true,
-            shapeOptions: { color: "#10b981", fillColor: "#10b981", fillOpacity: 0.3 },
-          },
-          polyline: false,
-          rectangle: false,
-          circle: false,
-          circlemarker: false,
-          marker: false,
-        },
-        edit: { featureGroup: drawnLayersRef.current, remove: false },
+  // Gestionar modo edición
+  useEffect(() => {
+    if (!ready || !mapInstance.current) return;
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const L = require("leaflet");
+    const map = mapInstance.current;
+
+    limpiarDibujo();
+
+    if (modoEdicion === "cuadro") {
+      map.getContainer().style.cursor = "crosshair";
+      map.doubleClickZoom.disable();
+
+      map.on("click", (e: { latlng: { lat: number; lng: number } }) => {
+        const pt: [number, number] = [e.latlng.lat, e.latlng.lng];
+        drawingPointsRef.current = [...drawingPointsRef.current, pt];
+        setPuntosActuales(drawingPointsRef.current.length);
+
+        // Marcador numerado
+        const num = drawingPointsRef.current.length;
+        const icon = L.divIcon({
+          html: `<div style="background:#10b981;color:white;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:bold;border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.4)">${num}</div>`,
+          className: "",
+          iconSize: [22, 22],
+          iconAnchor: [11, 11],
+        });
+        const marker = L.marker(pt, { icon }).addTo(map);
+        drawingMarkersRef.current.push(marker);
+
+        // Actualizar polígono preview
+        if (drawingPolyRef.current) map.removeLayer(drawingPolyRef.current);
+        if (drawingPointsRef.current.length >= 2) {
+          drawingPolyRef.current = L.polygon(drawingPointsRef.current, {
+            color: "#10b981",
+            fillColor: "#10b981",
+            fillOpacity: 0.2,
+            dashArray: "6,4",
+            weight: 2,
+          }).addTo(map);
+        }
       });
 
-      map.addControl(drawControl);
-      drawControlRef.current = drawControl;
-
-      map.on("draw:created", (e: { layer: unknown }) => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const layer = e.layer as any;
-        drawnLayersRef.current.clearLayers();
-        drawnLayersRef.current.addLayer(layer);
-        const latLngs: [number, number][] = layer.getLatLngs()[0].map(
-          (ll: { lat: number; lng: number }) => [ll.lat, ll.lng] as [number, number]
-        );
-        const areaSqm = calcularAreaSqm(latLngs);
-        onNuevoCuadro?.({ coordenadas: latLngs, areaSqm });
+      map.on("dblclick", () => {
+        cerrarPoligono();
       });
     }
 
     if (modoEdicion === "trampa") {
-      // Cursor crosshair
       map.getContainer().style.cursor = "crosshair";
 
-      const onClick = (e: { latlng: { lat: number; lng: number } }) => {
+      map.on("click", (e: { latlng: { lat: number; lng: number } }) => {
         onNuevaTrampa?.({ lat: e.latlng.lat, lng: e.latlng.lng });
-        // Mostrar pin temporal
-        const trapIcon = L.divIcon({
-          html: `<div style="background:#dc2626;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:bold;box-shadow:0 2px 6px rgba(0,0,0,0.4);border:2px solid white">T</div>`,
+        // Pin temporal
+        const icon = L.divIcon({
+          html: `<div style="background:#dc2626;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:bold;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.4)">T</div>`,
           className: "",
           iconSize: [28, 28],
           iconAnchor: [14, 14],
         });
-        L.marker([e.latlng.lat, e.latlng.lng], { icon: trapIcon }).addTo(drawnLayersRef.current);
-      };
-
-      map.on("click", onClick);
-    } else {
-      map.getContainer().style.cursor = "";
+        L.marker([e.latlng.lat, e.latlng.lng], { icon }).addTo(drawnLayersRef.current);
+        // Un solo click y listo
+        map.off("click");
+        map.getContainer().style.cursor = "";
+      });
     }
-  }, [modoEdicion, ready, onNuevoCuadro, onNuevaTrampa]);
+  }, [modoEdicion, ready, limpiarDibujo, cerrarPoligono, onNuevaTrampa]);
 
-  // Renderizar cuadros y trampas existentes
+  // Renderizar cuadros existentes
   const renderLayers = useCallback(() => {
     if (!mapInstance.current || !ready) return;
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     const L = require("leaflet");
     const map = mapInstance.current;
 
-    // Limpiar capas de datos (no las de dibujo ni tiles)
     map.eachLayer((layer: unknown) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const l = layer as any;
@@ -241,10 +257,7 @@ export default function MapaFrutiApp({
       const color = ESPECIE_COLORS[cuadro.especie] ?? ESPECIE_COLORS.default;
 
       const polygon = L.polygon(coords, {
-        color,
-        fillColor: color,
-        fillOpacity: 0.35,
-        weight: 2,
+        color, fillColor: color, fillOpacity: 0.35, weight: 2,
       }).addTo(map);
 
       polygon.bindPopup(`
@@ -252,7 +265,7 @@ export default function MapaFrutiApp({
           <strong style="font-size:14px">${cuadro.nombre}</strong><br/>
           <span style="color:#666;font-size:12px">${cuadro.variedad} · ${cuadro.especie}</span><br/>
           📐 ${cuadro.superficie} ha &nbsp;|&nbsp; 🏠 ${cuadro.establecimiento.nombre}
-          ${cuadro.marcadoMonitoreo ? '<br/><span style="color:#16a34a;font-size:11px">✓ Marcado para monitoreo</span>' : ""}
+          ${cuadro.marcadoMonitoreo ? '<br/><span style="color:#16a34a;font-size:11px">✓ Monitoreado</span>' : ""}
           ${cuadro.trampas?.length ? `<br/><span style="color:#dc2626;font-size:11px">🪤 ${cuadro.trampas.length} trampa(s)</span>` : ""}
         </div>
       `);
@@ -282,6 +295,7 @@ export default function MapaFrutiApp({
       }
     });
 
+    // Solo hacer fitBounds si hay cuadros CON coordenadas en Melilla
     if (bounds.length > 0) {
       try { map.fitBounds(bounds, { padding: [40, 40], maxZoom: 17 }); } catch { /* ok */ }
     }
@@ -289,17 +303,25 @@ export default function MapaFrutiApp({
 
   useEffect(() => { renderLayers(); }, [renderLayers]);
 
-  if (!ready) return <div className="h-[500px] bg-gray-100 rounded-xl animate-pulse flex items-center justify-center text-gray-400">Cargando mapa...</div>;
+  if (!ready) return (
+    <div className="h-[520px] bg-gray-100 rounded-xl animate-pulse flex items-center justify-center text-gray-400">
+      Cargando mapa...
+    </div>
+  );
 
   return (
     <div className="relative">
       {modoEdicion === "cuadro" && (
-        <div className="absolute top-3 left-1/2 -translate-x-1/2 z-[1000] bg-emerald-700 text-white text-sm px-4 py-1.5 rounded-full shadow-lg pointer-events-none">
-          🖊️ Dibujá el polígono del cuadro en el mapa
+        <div className="absolute top-3 left-1/2 -translate-x-1/2 z-[1000] bg-emerald-700 text-white text-sm px-4 py-2 rounded-full shadow-lg text-center">
+          {puntosActuales === 0
+            ? "📍 Hacé click en el mapa para marcar los vértices del cuadro"
+            : puntosActuales < 3
+            ? `📍 ${puntosActuales} punto(s) — seguí marcando (mínimo 3)`
+            : `✅ ${puntosActuales} puntos — doble click para cerrar el cuadro`}
         </div>
       )}
       {modoEdicion === "trampa" && (
-        <div className="absolute top-3 left-1/2 -translate-x-1/2 z-[1000] bg-red-600 text-white text-sm px-4 py-1.5 rounded-full shadow-lg pointer-events-none">
+        <div className="absolute top-3 left-1/2 -translate-x-1/2 z-[1000] bg-red-600 text-white text-sm px-4 py-2 rounded-full shadow-lg">
           🪤 Hacé click donde querés ubicar la trampa
         </div>
       )}
