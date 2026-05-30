@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
+import BuscadorProducto from "@/components/BuscadorProducto";
 
 type Producto = { id: string; nombre: string; principioActivo: string; tipoProducto: string; carencia: number };
 type Cuadro = { id: string; nombre: string; variedad: string; especie: string; establecimiento: { nombre: string } };
@@ -239,17 +240,13 @@ function AplicacionesContent() {
                   {productosForm.map((prod, idx) => (
                     <div key={idx} className="flex gap-2 items-end bg-white rounded-xl border border-gray-200 p-3">
                       <div className="flex-1">
-                        <label className="block text-xs text-gray-500 mb-1">Producto {idx + 1}</label>
-                        <select value={prod.productoId}
-                          onChange={(e) => { const u = [...productosForm]; u[idx].productoId = e.target.value; setProductosForm(u); }}
-                          className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500">
-                          <option value="">Seleccionar producto...</option>
-                          {productos.map((p) => (
-                            <option key={p.id} value={p.id}>
-                              {p.nombre} ({p.tipoProducto})
-                            </option>
-                          ))}
-                        </select>
+                        <label className="block text-xs text-gray-500 mb-1">Producto {idx + 1} — escribí para buscar</label>
+                        <BuscadorProducto
+                          productos={productos}
+                          value={prod.productoId}
+                          onChange={(id) => { const u = [...productosForm]; u[idx].productoId = id; setProductosForm(u); }}
+                          placeholder="Ej: Mancozeb, Captan, Coragen..."
+                        />
                       </div>
                       <div className="w-28">
                         <label className="block text-xs text-gray-500 mb-1">Dosis</label>
