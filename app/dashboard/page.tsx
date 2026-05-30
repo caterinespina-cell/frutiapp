@@ -119,39 +119,39 @@ export default function DashboardHome() {
       </div>
 
       {/* Clima actual + pronóstico */}
-      <div className="bg-gradient-to-br from-sky-500 to-blue-600 rounded-2xl p-5 text-white shadow-md">
-        <p className="text-sky-100 text-xs mb-3 font-medium">📍 Melilla, Montevideo</p>
+      <div className="bg-gradient-to-br from-slate-700 to-slate-900 rounded-2xl p-5 text-white shadow-md">
+        <p className="text-slate-300 text-xs mb-3 font-medium">📍 Melilla, Montevideo — Clima actual</p>
 
         {/* Ahora */}
         {clima ? (
           <div className="flex items-center justify-between flex-wrap gap-3 mb-4">
             <div>
-              <p className="text-sm text-sky-100">{clima.descripcion}</p>
+              <p className="text-sm text-slate-300">{clima.descripcion}</p>
               <p className="text-5xl font-bold mt-1">{clima.temperatura}°C</p>
             </div>
             <div className="flex gap-4 text-center">
               <div>
                 <p className="text-2xl font-bold">{clima.humedad}%</p>
-                <p className="text-sky-200 text-xs">Humedad</p>
+                <p className="text-slate-400 text-xs">Humedad</p>
               </div>
               <div>
                 <p className="text-2xl font-bold">{clima.viento}</p>
-                <p className="text-sky-200 text-xs">km/h viento</p>
+                <p className="text-slate-400 text-xs">km/h viento</p>
               </div>
             </div>
           </div>
         ) : (
           <div className="flex gap-4 animate-pulse mb-4">
-            <div className="h-12 w-24 bg-sky-400 rounded-xl" />
-            <div className="h-12 w-16 bg-sky-400 rounded-xl" />
+            <div className="h-12 w-24 bg-slate-600 rounded-xl" />
+            <div className="h-12 w-16 bg-slate-600 rounded-xl" />
           </div>
         )}
 
         {/* Pronóstico 7 días */}
         {pronostico.length > 0 && (
           <>
-            <div className="border-t border-sky-400 pt-3">
-              <p className="text-sky-100 text-xs mb-2 font-medium">Pronóstico de lluvia — próximos 7 días</p>
+            <div className="border-t border-slate-600 pt-3">
+              <p className="text-slate-300 text-xs mb-2 font-medium">Pronóstico de lluvia — próximos 7 días</p>
               <div className="grid grid-cols-7 gap-1">
                 {pronostico.map((dia, i) => {
                   const fecha = new Date(dia.fecha + "T12:00:00");
@@ -159,17 +159,17 @@ export default function DashboardHome() {
                   return (
                     <div key={dia.fecha}
                       className={`rounded-xl py-2 px-1 text-center ${tieneRiesgo ? "bg-white/20" : "bg-white/10"}`}>
-                      <p className="text-xs font-semibold text-sky-100">
+                      <p className="text-xs font-semibold text-slate-300">
                         {i === 0 ? "Hoy" : DIAS[fecha.getDay()]}
                       </p>
                       <div className="text-base my-0.5">
                         {WEATHER_DESC[dia.weatherCode]?.split(" ")[0] ?? "🌤️"}
                       </div>
-                      <p className={`text-xs font-bold ${tieneRiesgo ? "text-yellow-300" : "text-sky-200"}`}>
+                      <p className={`text-xs font-bold ${tieneRiesgo ? "text-yellow-300" : "text-slate-400"}`}>
                         {dia.probLluvia}%
                       </p>
                       {dia.lluvia > 0 && (
-                        <p className="text-xs text-sky-100">{dia.lluvia}mm</p>
+                        <p className="text-xs text-blue-300">{dia.lluvia}mm</p>
                       )}
                     </div>
                   );
