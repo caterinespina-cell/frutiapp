@@ -30,13 +30,35 @@ export async function POST(req: Request) {
   }
 
   const body = await req.json();
+
+  // Calcular superficie si no viene pero sí vienen plantas y distancias
+  let superficie = body.superficie;
+  if (!superficie && body.numeroPlantas && body.distanciaFilas && body.distanciaPlantas) {
+    superficie = (body.numeroPlantas * body.distanciaFilas * body.distanciaPlantas) / 10000;
+  }
+
+  // Calcular centroide del polígono para el pin
+  let lat: number | null = null;
+  let lng: number | null = null;
+  const coords: [number, number][] = body.coordenadas ?? [];
+  if (coords.length > 0) {
+    lat = coords.reduce((s, c) => s + c[0], 0) / coords.length;
+    lng = coords.reduce((s, c) => s + c[1], 0) / coords.length;
+  }
+
   const cuadro = await prisma.cuadro.create({
     data: {
       nombre: body.nombre,
-      variedad: body.variedad,
+      variedad: body.variedad ?? "",
       especie: body.especie,
-      superficie: body.superficie,
-      coordenadas: JSON.stringify(body.coordenadas ?? []),
+      superficie: parseFloat((superficie ?? 0).toFixed(4)),
+      numeroPlantas: body.numeroPlantas ? parseInt(body.numeroPlantas) : null,
+      distanciaFilas: body.distanciaFilas ? parseFloat(body.distanciaFilas) : null,
+      distanciaPlantas: body.distanciaPlantas ? parseFloat(body.distanciaPlantas) : null,
+      anoPlantacion: body.anoPlantacion ? parseInt(body.anoPlantacion) : null,
+      lat,
+      lng,
+      coordenadas: JSON.stringify(coords),
       marcadoMonitoreo: body.marcadoMonitoreo ?? false,
       establecimientoId: body.establecimientoId,
     },

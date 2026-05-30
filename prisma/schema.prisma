@@ -40,6 +40,12 @@ model Cuadro {
   variedad          String
   especie           String
   superficie        Float
+  numeroPlantas     Int?
+  distanciaFilas    Float?   // metros entre filas
+  distanciaPlantas  Float?   // metros entre plantas
+  anoPlantacion     Int?
+  lat               Float?   // centroide para el pin
+  lng               Float?
   coordenadas       String   @default("[]")
   marcadoMonitoreo  Boolean  @default(false)
   establecimientoId String

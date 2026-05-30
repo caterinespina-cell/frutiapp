@@ -33,6 +33,8 @@ type Props = {
   modoEdicion?: "ninguno" | "cuadro" | "trampa";
   onNuevoCuadro?: (payload: NuevoCuadroPayload) => void;
   onNuevaTrampa?: (payload: NuevaTrampaPayload) => void;
+  zoomTarget?: { lat: number; lng: number } | null;
+  onZoomDone?: () => void;
 };
 
 const ESPECIE_COLORS: Record<string, string> = {
@@ -69,6 +71,8 @@ export default function MapaFrutiApp({
   modoEdicion = "ninguno",
   onNuevoCuadro,
   onNuevaTrampa,
+  zoomTarget,
+  onZoomDone,
 }: Props) {
   const mapRef = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -302,6 +306,13 @@ export default function MapaFrutiApp({
   }, [cuadros, ready, showTrampas, onCuadroClick]);
 
   useEffect(() => { renderLayers(); }, [renderLayers]);
+
+  // Zoom al cuadro seleccionado
+  useEffect(() => {
+    if (!zoomTarget || !mapInstance.current) return;
+    mapInstance.current.setView([zoomTarget.lat, zoomTarget.lng], 17, { animate: true });
+    onZoomDone?.();
+  }, [zoomTarget, onZoomDone]);
 
   if (!ready) return (
     <div className="h-[520px] bg-gray-100 rounded-xl animate-pulse flex items-center justify-center text-gray-400">
