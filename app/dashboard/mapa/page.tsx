@@ -62,15 +62,17 @@ export default function MapaPage() {
   const [savingTrampa, setSavingTrampa] = useState(false);
 
   const load = useCallback(async () => {
-    const [cua, est, usr] = await Promise.all([
-      fetch("/api/cuadros").then((r) => r.json()),
-      fetch("/api/establecimientos").then((r) => r.json()),
-      fetch("/api/auth/me").then((r) => r.json()),
-    ]);
-    if (Array.isArray(cua)) setCuadros(cua);
-    if (Array.isArray(est)) setEstablecimientos(est);
-    setUser(usr);
-    setLoading(false);
+    // Usuario por separado para que no bloquee el resto
+    fetch("/api/auth/me").then((r) => r.json()).then((usr) => { if (usr?.role) setUser(usr); }).catch(() => {});
+
+    Promise.all([
+      fetch("/api/cuadros").then((r) => r.json()).catch(() => []),
+      fetch("/api/establecimientos").then((r) => r.json()).catch(() => []),
+    ]).then(([cua, est]) => {
+      if (Array.isArray(cua)) setCuadros(cua);
+      if (Array.isArray(est)) setEstablecimientos(est);
+      setLoading(false);
+    });
   }, []);
 
   useEffect(() => { load(); }, [load]);
@@ -143,7 +145,8 @@ export default function MapaPage() {
     }
   }, []);
 
-  const canEdit = user?.role === "tecnico" || user?.role === "productor";
+  // Mostrar botones por defecto — la API valida permisos
+  const canEdit = !user || user?.role === "tecnico" || user?.role === "productor";
   const canAddTrap = user?.role === "monitoreador";
 
   return (
