@@ -21,23 +21,12 @@ type Aplicacion = {
 
 type ClimaActual = { temperatura: number; humedad: number; viento: number };
 
-// Melilla, Montevideo
-const LAT = -34.776;
-const LNG = -56.048;
-
-async function fetchClima(): Promise<ClimaActual | null> {
+async function fetchClimaActual(): Promise<ClimaActual | null> {
   try {
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LNG}&current=temperature_2m,relative_humidity_2m,wind_speed_10m&timezone=America%2FMontevideo`;
-    const res = await fetch(url);
+    const res = await fetch("https://api.open-meteo.com/v1/forecast?latitude=-34.776&longitude=-56.048&current=temperature_2m,relative_humidity_2m,wind_speed_10m&timezone=America%2FMontevideo");
     const data = await res.json();
-    return {
-      temperatura: data.current.temperature_2m,
-      humedad: data.current.relative_humidity_2m,
-      viento: data.current.wind_speed_10m,
-    };
-  } catch {
-    return null;
-  }
+    return { temperatura: data.current.temperature_2m, humedad: data.current.relative_humidity_2m, viento: data.current.wind_speed_10m };
+  } catch { return null; }
 }
 
 function AplicacionesContent() {
@@ -90,7 +79,7 @@ function AplicacionesContent() {
 
   async function obtenerClima() {
     setCargandoClima(true);
-    const c = await fetchClima();
+    const c = await fetchClimaActual();
     setClima(c);
     setCargandoClima(false);
   }
@@ -167,28 +156,6 @@ function AplicacionesContent() {
             + Nueva aplicación
           </button>
         )}
-      </div>
-
-      {/* Widget clima siempre visible */}
-      <div className="bg-sky-50 border border-sky-200 rounded-2xl p-4">
-        <div className="flex items-center justify-between flex-wrap gap-3">
-          <div>
-            <p className="font-semibold text-sky-800">🌤️ Clima actual — Melilla, Montevideo</p>
-            {clima ? (
-              <div className="flex gap-6 mt-2">
-                <span className="text-2xl font-bold text-orange-500">{clima.temperatura}°C</span>
-                <span className="text-2xl font-bold text-blue-500">{clima.humedad}%<span className="text-sm font-normal text-gray-400 ml-1">humedad</span></span>
-                <span className="text-2xl font-bold text-teal-500">{clima.viento}<span className="text-sm font-normal text-gray-400 ml-1">km/h viento</span></span>
-              </div>
-            ) : (
-              <p className="text-sm text-sky-600 mt-1">Temperatura, humedad y viento en tiempo real</p>
-            )}
-          </div>
-          <button onClick={obtenerClima} disabled={cargandoClima}
-            className="px-5 py-2.5 bg-sky-500 hover:bg-sky-600 disabled:bg-sky-300 text-white rounded-xl text-sm font-semibold transition-colors">
-            {cargandoClima ? "⏳ Obteniendo..." : "📡 Obtener clima actual"}
-          </button>
-        </div>
       </div>
 
       {success && (

@@ -18,6 +18,7 @@ model User {
   establecimientosAsProducer Establecimiento[] @relation("ProductorEstablecimientos")
   aplicaciones               Aplicacion[]
   visitasMonitoreo           VisitaMonitoreo[]
+  registrosClimaticos        RegistroClimatico[]
 }
 
 model Establecimiento {
@@ -164,4 +165,17 @@ model MonitoreoFruto {
   danoViejoMuerto   Int             @default(0)
   danoViejoDano     Int             @default(0)
   observaciones     String?
+}
+
+model RegistroClimatico {
+  id              String   @id @default(cuid())
+  fecha           DateTime
+  precipitacion   Float?   // mm caídos
+  granizo         Boolean  @default(false)
+  vientoFuerte    Boolean  @default(false)
+  helada          Boolean  @default(false)
+  observaciones   String?
+  userId          String
+  user            User     @relation(fields: [userId], references: [id])
+  createdAt       DateTime @default(now())
 }
