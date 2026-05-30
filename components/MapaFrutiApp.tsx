@@ -100,7 +100,8 @@ export default function MapaFrutiApp({
       shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
     });
 
-    const map = L.map(mapRef.current, { zoomControl: true }).setView([-34.52, -56.23], 14);
+    // Melilla, Montevideo
+    const map = L.map(mapRef.current, { zoomControl: true }).setView([-34.776, -56.048], 14);
 
     const osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "© OpenStreetMap contributors",
@@ -148,10 +149,16 @@ export default function MapaFrutiApp({
     map.off("click");
 
     if (modoEdicion === "cuadro" && drawnLayersRef.current) {
-      // Cargar leaflet-draw dinámicamente
-      try {
-        require("leaflet-draw");
-      } catch { /* ya cargado */ }
+      // Cargar leaflet-draw y su CSS
+      require("leaflet-draw");
+      // Inyectar CSS de leaflet-draw si no está
+      if (!document.getElementById("leaflet-draw-css")) {
+        const link = document.createElement("link");
+        link.id = "leaflet-draw-css";
+        link.rel = "stylesheet";
+        link.href = "https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css";
+        document.head.appendChild(link);
+      }
 
       const drawControl = new L.Control.Draw({
         position: "topright",
