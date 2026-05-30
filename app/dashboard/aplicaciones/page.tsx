@@ -63,16 +63,21 @@ function AplicacionesContent() {
   ]);
 
   const load = useCallback(async () => {
-    const [apl, cua, pro, usr] = await Promise.all([
-      fetch("/api/aplicaciones").then((r) => r.json()),
-      fetch("/api/cuadros").then((r) => r.json()),
-      fetch("/api/productos").then((r) => r.json()),
-      fetch("/api/auth/me").then((r) => r.json()),
-    ]);
-    if (Array.isArray(apl)) setAplicaciones(apl);
-    if (Array.isArray(cua)) setCuadros(cua);
-    if (Array.isArray(pro)) setProductos(pro);
-    setUser(usr);
+    // Cargar usuario primero por separado para que no falle con los otros fetches
+    fetch("/api/auth/me")
+      .then((r) => r.json())
+      .then((usr) => { if (usr?.role) setUser(usr); })
+      .catch(() => {});
+
+    Promise.all([
+      fetch("/api/aplicaciones").then((r) => r.json()).catch(() => []),
+      fetch("/api/cuadros").then((r) => r.json()).catch(() => []),
+      fetch("/api/productos").then((r) => r.json()).catch(() => []),
+    ]).then(([apl, cua, pro]) => {
+      if (Array.isArray(apl)) setAplicaciones(apl);
+      if (Array.isArray(cua)) setCuadros(cua);
+      if (Array.isArray(pro)) setProductos(pro);
+    });
   }, []);
 
   useEffect(() => { load(); }, [load]);
@@ -141,7 +146,8 @@ function AplicacionesContent() {
     setSubmitting(false);
   }
 
-  const canRegister = user?.role === "tecnico" || user?.role === "productor";
+  // Mostrar el botón apenas la página carga — el API valida permisos
+  const canRegister = !user || user?.role === "tecnico" || user?.role === "productor";
 
   // Agrupar cuadros por establecimiento
   const cuadrosPorEstab: Record<string, { estab: string; cuadros: Cuadro[] }> = {};
@@ -161,6 +167,28 @@ function AplicacionesContent() {
             + Nueva aplicación
           </button>
         )}
+      </div>
+
+      {/* Widget clima siempre visible */}
+      <div className="bg-sky-50 border border-sky-200 rounded-2xl p-4">
+        <div className="flex items-center justify-between flex-wrap gap-3">
+          <div>
+            <p className="font-semibold text-sky-800">🌤️ Clima actual — Melilla, Montevideo</p>
+            {clima ? (
+              <div className="flex gap-6 mt-2">
+                <span className="text-2xl font-bold text-orange-500">{clima.temperatura}°C</span>
+                <span className="text-2xl font-bold text-blue-500">{clima.humedad}%<span className="text-sm font-normal text-gray-400 ml-1">humedad</span></span>
+                <span className="text-2xl font-bold text-teal-500">{clima.viento}<span className="text-sm font-normal text-gray-400 ml-1">km/h viento</span></span>
+              </div>
+            ) : (
+              <p className="text-sm text-sky-600 mt-1">Temperatura, humedad y viento en tiempo real</p>
+            )}
+          </div>
+          <button onClick={obtenerClima} disabled={cargandoClima}
+            className="px-5 py-2.5 bg-sky-500 hover:bg-sky-600 disabled:bg-sky-300 text-white rounded-xl text-sm font-semibold transition-colors">
+            {cargandoClima ? "⏳ Obteniendo..." : "📡 Obtener clima actual"}
+          </button>
+        </div>
       </div>
 
       {success && (
@@ -302,40 +330,15 @@ function AplicacionesContent() {
                 </div>
               </div>
 
-              {/* Clima */}
-              <div className="border border-sky-200 bg-sky-50 rounded-xl p-4">
-                <div className="flex items-center justify-between mb-3">
-                  <div>
-                    <p className="font-medium text-sky-800">🌤️ Condiciones climáticas</p>
-                    <p className="text-xs text-sky-600">Melilla, Montevideo — datos actuales</p>
-                  </div>
-                  <button type="button" onClick={obtenerClima} disabled={cargandoClima}
-                    className="px-4 py-2 bg-sky-500 hover:bg-sky-600 disabled:bg-sky-300 text-white rounded-lg text-sm font-medium transition-colors">
-                    {cargandoClima ? "Obteniendo..." : "📡 Obtener clima actual"}
-                  </button>
+              {/* Clima — ya visible arriba, mostrar resumen si está cargado */}
+              {clima && (
+                <div className="flex gap-4 p-3 bg-sky-50 border border-sky-200 rounded-xl text-sm">
+                  <span>🌡️ <strong>{clima.temperatura}°C</strong></span>
+                  <span>💦 <strong>{clima.humedad}%</strong></span>
+                  <span>💨 <strong>{clima.viento} km/h</strong></span>
+                  <span className="text-sky-500 text-xs">(se va a guardar con la aplicación)</span>
                 </div>
-
-                {clima ? (
-                  <div className="grid grid-cols-3 gap-3">
-                    <div className="bg-white rounded-xl p-3 text-center border border-sky-100">
-                      <div className="text-2xl font-bold text-orange-500">{clima.temperatura}°C</div>
-                      <div className="text-xs text-gray-500 mt-1">Temperatura</div>
-                    </div>
-                    <div className="bg-white rounded-xl p-3 text-center border border-sky-100">
-                      <div className="text-2xl font-bold text-blue-500">{clima.humedad}%</div>
-                      <div className="text-xs text-gray-500 mt-1">Humedad</div>
-                    </div>
-                    <div className="bg-white rounded-xl p-3 text-center border border-sky-100">
-                      <div className="text-2xl font-bold text-teal-500">{clima.viento} km/h</div>
-                      <div className="text-xs text-gray-500 mt-1">Viento</div>
-                    </div>
-                  </div>
-                ) : (
-                  <p className="text-sm text-sky-600 text-center py-2">
-                    Presioná el botón para traer temperatura, humedad y viento actuales
-                  </p>
-                )}
-              </div>
+              )}
 
               <div className="mt-3">
                 <label className="block text-sm font-medium text-gray-600 mb-1">Observaciones</label>
