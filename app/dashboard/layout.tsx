@@ -20,6 +20,7 @@ const ROL_COLORS: Record<string, string> = {
 
 const NAV_ITEMS = [
   { href: "/dashboard", label: "Inicio", icon: "🏠", roles: ["productor", "tecnico", "monitoreador"] },
+  { href: "/dashboard/predios", label: "Predios", icon: "🏡", roles: ["productor", "tecnico"] },
   { href: "/dashboard/mapa", label: "Mapa de cuadros", icon: "🗺️", roles: ["productor", "tecnico", "monitoreador"] },
   { href: "/dashboard/aplicaciones", label: "Aplicaciones", icon: "💊", roles: ["productor", "tecnico"] },
   { href: "/dashboard/monitoreo", label: "Monitoreo", icon: "🔍", roles: ["productor", "tecnico", "monitoreador"] },

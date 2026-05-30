@@ -25,7 +25,7 @@ export async function POST() {
     }),
   ]);
 
-  // Establecimiento
+  // Predio
   const estab = await prisma.establecimiento.upsert({
     where: { codigo: "K28D052" },
     update: {},

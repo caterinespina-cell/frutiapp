@@ -11,7 +11,7 @@ export async function GET() {
       ? { productorId: session.id }
       : {};
 
-  const establecimientos = await prisma.establecimiento.findMany({
+  const predios = await prisma.establecimiento.findMany({
     where,
     include: {
       cuadros: {
@@ -21,7 +21,7 @@ export async function GET() {
     },
   });
 
-  return NextResponse.json(establecimientos);
+  return NextResponse.json(predios);
 }
 
 export async function POST(req: Request) {

@@ -6,7 +6,7 @@ import { Suspense } from "react";
 import BuscadorProducto from "@/components/BuscadorProducto";
 
 type Producto = { id: string; nombre: string; principioActivo: string; tipoProducto: string; carencia: number };
-type Cuadro = { id: string; nombre: string; variedad: string; especie: string; establecimiento: { nombre: string } };
+type Cuadro = { id: string; nombre: string; variedad: string; especie: string; predio: { nombre: string } };
 type Aplicacion = {
   id: string;
   fecha: string;
@@ -15,7 +15,7 @@ type Aplicacion = {
   viento?: number;
   humedad?: number;
   observaciones?: string;
-  cuadro: { nombre: string; variedad: string; establecimiento: { nombre: string } };
+  cuadro: { nombre: string; variedad: string; predio: { nombre: string } };
   tecnico: { name: string };
   productos: Array<{ producto: Producto; dosis: number; unidadDosis: string }>;
 };
@@ -142,7 +142,7 @@ function AplicacionesContent() {
   // Agrupar cuadros por establecimiento
   const cuadrosPorEstab: Record<string, { estab: string; cuadros: Cuadro[] }> = {};
   cuadros.forEach((c) => {
-    const key = c.establecimiento.nombre;
+    const key = c.predio.nombre;
     if (!cuadrosPorEstab[key]) cuadrosPorEstab[key] = { estab: key, cuadros: [] };
     cuadrosPorEstab[key].cuadros.push(c);
   });
@@ -346,7 +346,7 @@ function AplicacionesContent() {
               <div className="flex items-start justify-between gap-2">
                 <div>
                   <h3 className="font-semibold text-gray-900">
-                    {a.cuadro.establecimiento.nombre} — <span className="text-purple-700">{a.cuadro.nombre}</span>
+                    {a.cuadro.predio.nombre} — <span className="text-purple-700">{a.cuadro.nombre}</span>
                   </h3>
                   <p className="text-sm text-gray-400 capitalize">{a.cuadro.variedad}</p>
                 </div>

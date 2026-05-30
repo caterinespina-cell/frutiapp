@@ -21,7 +21,7 @@ type Cuadro = {
   coordenadas: string;
   marcadoMonitoreo: boolean;
   trampas: Array<{ id: string; numero: string; tipo: string; lat: number; lng: number }>;
-  establecimiento: { id: string; nombre: string; codigo: string };
+  predio: { id: string; nombre: string; codigo: string };
   aplicaciones: Array<{
     id: string; fecha: string; tecnico: { name: string };
     productos: Array<{ producto: { nombre: string }; dosis: number; unidadDosis: string }>;
@@ -50,7 +50,7 @@ export default function MapaPage() {
   // Form nuevo cuadro
   const [pendingCuadro, setPendingCuadro] = useState<NuevoCuadroPayload | null>(null);
   const [formCuadro, setFormCuadro] = useState({
-    nombre: "", variedad: "", especie: "durazno", establecimientoId: "",
+    nombre: "", variedad: "", especie: "durazno", predioId: "",
     marcadoMonitoreo: false, numeroPlantas: "", distanciaFilas: "", distanciaPlantas: "",
     anoPlantacion: String(ANO_ACTUAL),
   });
@@ -88,7 +88,7 @@ export default function MapaPage() {
   })();
 
   async function guardarCuadro() {
-    if (!formCuadro.nombre || !formCuadro.establecimientoId) return;
+    if (!formCuadro.nombre || !formCuadro.predioId) return;
     setSavingCuadro(true);
     await fetch("/api/cuadros", {
       method: "POST",
@@ -104,11 +104,11 @@ export default function MapaPage() {
         anoPlantacion: formCuadro.anoPlantacion || null,
         coordenadas: pendingCuadro?.coordenadas ?? [],
         marcadoMonitoreo: formCuadro.marcadoMonitoreo,
-        establecimientoId: formCuadro.establecimientoId,
+        predioId: formCuadro.predioId,
       }),
     });
     setPendingCuadro(null);
-    setFormCuadro({ nombre: "", variedad: "", especie: "durazno", establecimientoId: "", marcadoMonitoreo: false, numeroPlantas: "", distanciaFilas: "", distanciaPlantas: "", anoPlantacion: String(ANO_ACTUAL) });
+    setFormCuadro({ nombre: "", variedad: "", especie: "durazno", predioId: "", marcadoMonitoreo: false, numeroPlantas: "", distanciaFilas: "", distanciaPlantas: "", anoPlantacion: String(ANO_ACTUAL) });
     setModoEdicion("ninguno");
     setSavingCuadro(false);
     load();
@@ -240,7 +240,7 @@ export default function MapaPage() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Establecimiento *</label>
-              <select value={formCuadro.establecimientoId} onChange={(e) => setFormCuadro({ ...formCuadro, establecimientoId: e.target.value })}
+              <select value={formCuadro.predioId} onChange={(e) => setFormCuadro({ ...formCuadro, predioId: e.target.value })}
                 className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
                 <option value="">Seleccionar...</option>
                 {establecimientos.map((est) => <option key={est.id} value={est.id}>{est.codigo} — {est.nombre}</option>)}
@@ -288,7 +288,7 @@ export default function MapaPage() {
           </div>
 
           <div className="flex gap-3 mt-4">
-            <button onClick={guardarCuadro} disabled={savingCuadro || !formCuadro.nombre || !formCuadro.establecimientoId || !superficieCalculada}
+            <button onClick={guardarCuadro} disabled={savingCuadro || !formCuadro.nombre || !formCuadro.predioId || !superficieCalculada}
               className="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 disabled:bg-emerald-300 text-white rounded-lg text-sm font-medium">
               {savingCuadro ? "Guardando..." : "Guardar cuadro"}
             </button>
@@ -354,7 +354,7 @@ export default function MapaPage() {
                 </div>
                 <span className="text-xs bg-gray-100 px-2 py-0.5 rounded-full">{c.superficie} ha</span>
               </div>
-              <p className="text-xs text-gray-400 mt-1">{c.establecimiento.nombre}</p>
+              <p className="text-xs text-gray-400 mt-1">{c.predio.nombre}</p>
               {c.anoPlantacion && <p className="text-xs text-gray-400">Plantado: {c.anoPlantacion}</p>}
               {c.numeroPlantas && <p className="text-xs text-gray-400">{c.numeroPlantas} plantas</p>}
               <div className="flex gap-3 mt-2 text-xs text-gray-500">

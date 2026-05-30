@@ -13,7 +13,7 @@ type Cuadro = {
   coordenadas: string;
   marcadoMonitoreo: boolean;
   trampas: Trampa[];
-  establecimiento: { nombre: string; codigo: string };
+  predio: { nombre: string; codigo: string };
 };
 
 export type NuevoCuadroPayload = {
@@ -280,7 +280,7 @@ export default function MapaFrutiApp({
         <div style="min-width:180px;font-family:system-ui">
           <strong style="font-size:14px">${cuadro.nombre}</strong><br/>
           <span style="color:#666;font-size:12px">${cuadro.variedad} · ${cuadro.especie}</span><br/>
-          📐 ${cuadro.superficie} ha &nbsp;|&nbsp; 🏠 ${cuadro.establecimiento.nombre}
+          📐 ${cuadro.superficie} ha &nbsp;|&nbsp; 🏠 ${cuadro.predio.nombre}
           ${cuadro.marcadoMonitoreo ? '<br/><span style="color:#16a34a;font-size:11px">✓ Monitoreado</span>' : ""}
           ${cuadro.trampas?.length ? `<br/><span style="color:#dc2626;font-size:11px">🪤 ${cuadro.trampas.length} trampa(s)</span>` : ""}
         </div>
