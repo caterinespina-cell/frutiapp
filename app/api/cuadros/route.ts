@@ -60,7 +60,7 @@ export async function POST(req: Request) {
       lng,
       coordenadas: JSON.stringify(coords),
       marcadoMonitoreo: body.marcadoMonitoreo ?? false,
-      establecimientoId: body.predioId,
+      establecimientoId: body.predioId ?? body.establecimientoId,
     },
   });
 

@@ -243,7 +243,7 @@ export default function MapaPage() {
               <select value={formCuadro.predioId} onChange={(e) => setFormCuadro({ ...formCuadro, predioId: e.target.value })}
                 className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
                 <option value="">Seleccionar...</option>
-                {establecimientos.map((est) => <option key={est.id} value={est.id}>{est.codigo} — {est.nombre}</option>)}
+                {establecimientos.map((est) => <option key={est.id} value={est.id}>{est.codigo ? `${est.codigo} — ` : ""}{est.nombre}</option>)}
               </select>
             </div>
             <div className="flex items-center gap-2 mt-5">
