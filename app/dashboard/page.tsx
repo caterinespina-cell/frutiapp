@@ -54,7 +54,7 @@ export default function DashboardHome() {
     }));
 
     // Clima actual + pronóstico 7 días + horas de lluvia hoy
-    fetch("https://api.open-meteo.com/v1/forecast?latitude=-34.776&longitude=-56.048&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&daily=precipitation_sum,precipitation_probability_max,weather_code&hourly=precipitation_probability,precipitation&timezone=America%2FMontevideo&forecast_days=2")
+    fetch("https://api.open-meteo.com/v1/forecast?latitude=-34.776&longitude=-56.048&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&daily=precipitation_sum,precipitation_probability_max,weather_code&hourly=precipitation_probability,precipitation&timezone=America%2FMontevideo&forecast_days=7")
       .then((r) => r.json())
       .then((data) => {
         setClima({
@@ -70,16 +70,15 @@ export default function DashboardHome() {
           weatherCode: data.daily.weather_code[i] ?? 0,
         })));
 
-        // Horas con lluvia probable hoy (próximas 24h desde ahora)
-        const ahoraISO = new Date().toISOString().slice(0, 13); // "2026-05-29T22"
+        // Todas las horas de HOY para el gráfico (0-23h)
+        const hoy = new Date().toISOString().slice(0, 10); // "2026-05-30"
         const horas: HoraLluvia[] = data.hourly.time
           .map((t: string, i: number) => ({
             hora: t,
             prob: data.hourly.precipitation_probability[i] ?? 0,
             mm: data.hourly.precipitation[i] ?? 0,
           }))
-          .filter((h: HoraLluvia) => h.hora >= ahoraISO && h.hora <= ahoraISO.slice(0, 10) + "T23")
-          .filter((h: HoraLluvia) => h.prob >= 20); // solo si hay posibilidad real
+          .filter((h: HoraLluvia) => h.hora.startsWith(hoy));
         setHorasLluvia(horas);
       }).catch(() => {});
 
@@ -161,31 +160,68 @@ export default function DashboardHome() {
           </div>
         )}
 
-        {/* Lluvia de hoy por hora */}
+        {/* Gráfico de lluvia por hora — hoy */}
         {horasLluvia.length > 0 && (
           <div className="border-t border-slate-600 pt-3 mb-3">
-            <p className="text-slate-300 text-xs mb-2 font-medium">🌧️ Lluvia esperada hoy</p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex items-center justify-between mb-2">
+              <p className="text-slate-300 text-xs font-medium">🌧️ Probabilidad de lluvia hoy</p>
+              {(() => {
+                const maxHora = horasLluvia.reduce((m, h) => h.prob > m.prob ? h : m, horasLluvia[0]);
+                if (maxHora.prob >= 30) {
+                  const h = new Date(maxHora.hora + ":00").getHours();
+                  const ampm = h >= 12 ? "pm" : "am";
+                  return <span className="text-xs text-blue-300">Pico: {h % 12 || 12}{ampm} ({maxHora.prob}%)</span>;
+                }
+                return null;
+              })()}
+            </div>
+            <div className="flex items-end gap-0.5 h-12">
               {horasLluvia.map((h) => {
-                const horaLocal = new Date(h.hora + ":00").getHours();
-                const ampm = horaLocal >= 12 ? "pm" : "am";
-                const hora12 = horaLocal % 12 || 12;
+                const hora = new Date(h.hora + ":00").getHours();
+                const altura = Math.max(2, (h.prob / 100) * 48);
+                const color = h.prob >= 70 ? "bg-blue-400" : h.prob >= 40 ? "bg-blue-500/70" : "bg-slate-500/60";
+                const esPico = h.prob === Math.max(...horasLluvia.map(x => x.prob));
                 return (
-                  <div key={h.hora}
-                    className={`text-center px-3 py-1.5 rounded-xl text-xs font-medium ${h.prob >= 60 ? "bg-blue-500 text-white" : "bg-slate-600 text-slate-200"}`}>
-                    <div className="font-bold">{hora12}{ampm}</div>
-                    <div>{h.prob}%</div>
-                    {h.mm > 0 && <div className="text-blue-200">{h.mm}mm</div>}
+                  <div key={h.hora} className="flex-1 flex flex-col items-center justify-end group relative">
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full mb-1 hidden group-hover:flex flex-col items-center z-10">
+                      <div className="bg-white text-gray-800 text-xs rounded px-1.5 py-0.5 whitespace-nowrap shadow">
+                        {hora}h — {h.prob}%{h.mm > 0 ? ` · ${h.mm}mm` : ""}
+                      </div>
+                    </div>
+                    <div
+                      className={`w-full rounded-sm transition-all ${color} ${esPico ? "ring-1 ring-blue-300" : ""}`}
+                      style={{ height: `${altura}px` }}
+                    />
                   </div>
                 );
               })}
             </div>
+            {/* Etiquetas de hora */}
+            <div className="flex gap-0.5 mt-1">
+              {horasLluvia.map((h) => {
+                const hora = new Date(h.hora + ":00").getHours();
+                const mostrar = hora % 6 === 0; // cada 6 horas
+                return (
+                  <div key={h.hora} className="flex-1 text-center">
+                    {mostrar && <span className="text-slate-400 text-[9px]">{hora}h</span>}
+                  </div>
+                );
+              })}
+            </div>
+            {/* mm totales del día */}
+            {(() => {
+              const totalMm = horasLluvia.reduce((s, h) => s + h.mm, 0);
+              return totalMm > 0 ? (
+                <p className="text-xs text-blue-300 mt-1">Total estimado: {totalMm.toFixed(1)} mm</p>
+              ) : null;
+            })()}
           </div>
         )}
 
-        {clima && horasLluvia.length === 0 && (
+        {clima && horasLluvia.every(h => h.prob < 20) && (
           <div className="border-t border-slate-600 pt-3 mb-3">
-            <p className="text-slate-400 text-xs">✅ Sin lluvia esperada para hoy</p>
+            <p className="text-slate-400 text-xs">✅ Sin lluvia significativa esperada hoy</p>
           </div>
         )}
 
