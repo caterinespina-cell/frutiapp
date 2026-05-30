@@ -1,0 +1,3103 @@
+[
+  {
+    "nombre": "ALLEGIANCE 80 WP",
+    "principioActivo": "CAPTAN",
+    "tipoProducto": "Fungicida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "FERAMINA",
+    "principioActivo": "2,4 D SAL DIMETILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 30,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "GUSATHION M 35",
+    "principioActivo": "AZINFOS METIL",
+    "tipoProducto": "Insecticida",
+    "carencia": 15,
+    "estado": "Uso Prohibido"
+  },
+  {
+    "nombre": "SUPRATHION 40",
+    "principioActivo": "METIDATION",
+    "tipoProducto": "Insecticida",
+    "carencia": 28,
+    "estado": "Uso Prohibido"
+  },
+  {
+    "nombre": "MANZATE 200",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 10,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "POLYRAM DF",
+    "principioActivo": "METIRAM",
+    "tipoProducto": "Fungicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "DI-ON 80 FLOW",
+    "principioActivo": "DIURON",
+    "tipoProducto": "Herbicida",
+    "carencia": 60,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "TALSTAR",
+    "principioActivo": "BIFENTRIN",
+    "tipoProducto": "Insecticida",
+    "carencia": 30,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ALSYSTIN 480 SC",
+    "principioActivo": "TRIFLUMURON",
+    "tipoProducto": "Insecticida",
+    "carencia": 10,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "GLYFOSOL L-48",
+    "principioActivo": "GLIFOSATO, SAL ISOPROPILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 5,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "TARGET 720 SL",
+    "principioActivo": "MSMA",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "PROCIPER",
+    "principioActivo": "CIPERMETRIN",
+    "tipoProducto": "Insecticida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CARBENDAFLOW 500",
+    "principioActivo": "CARBENDAZIMA",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "Dormex",
+    "principioActivo": "CIANAMIDA HIDROGENADA",
+    "tipoProducto": "Regulador de crecimiento",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "AZUFRUT 80 WDG",
+    "principioActivo": "AZUFRE",
+    "tipoProducto": "Fungicida",
+    "carencia": 28,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "AGIL 100",
+    "principioActivo": "PROPAQUIZAFOP",
+    "tipoProducto": "Herbicida",
+    "carencia": 30,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "BENCARB - L",
+    "principioActivo": "CARBENDAZIMA",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "CIPERMETRINA 25 AGRITEC",
+    "principioActivo": "CIPERMETRIN",
+    "tipoProducto": "Insecticida",
+    "carencia": 30,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "MARSHALL 25 CE",
+    "principioActivo": "CARBOSULFAN",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 15,
+    "estado": "Uso Prohibido"
+  },
+  {
+    "nombre": "BENOMYL 50 SAUDU",
+    "principioActivo": "BENOMIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "GLIFOTEC",
+    "principioActivo": "GLIFOSATO, SAL ISOPROPILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 21,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "IMAZIL 75",
+    "principioActivo": "IMAZALIL SULFATO",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "MIRAGE 45 CE",
+    "principioActivo": "PROCLORAZ",
+    "tipoProducto": "Fungicida",
+    "carencia": 1,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "DIMETOATO 40 FMC",
+    "principioActivo": "DIMETOATO",
+    "tipoProducto": "Insecticida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "DIMET 40 EC",
+    "principioActivo": "DIMETOATO",
+    "tipoProducto": "Insecticida",
+    "carencia": 20,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "MERPAN 80 DF",
+    "principioActivo": "CAPTAN",
+    "tipoProducto": "Fungicida",
+    "carencia": 1,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "FOLPAN 80 DF",
+    "principioActivo": "FOLPET",
+    "tipoProducto": "Fungicida",
+    "carencia": 1,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "FANAVID FLOWABLE",
+    "principioActivo": "OXICLORURO DE COBRE",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "FANAVID 85",
+    "principioActivo": "OXICLORURO DE COBRE",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "Sulfato de Cobre Emperador",
+    "principioActivo": "SULFATO DE COBRE PENTAHIDRATADO",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "PERECOPPER 50",
+    "principioActivo": "OXICLORURO DE COBRE",
+    "tipoProducto": "Fungicida",
+    "carencia": 21,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "MANCOZEB AGRO REGIONAL",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 10,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ZIRAM GRANUFLO",
+    "principioActivo": "ZIRAM",
+    "tipoProducto": "Fungicida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "ACARISTOP 50 SC",
+    "principioActivo": "CLOFENTEZINA",
+    "tipoProducto": "Acaricida",
+    "carencia": 30,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "DELAN WP 75",
+    "principioActivo": "DITIANON",
+    "tipoProducto": "Fungicida",
+    "carencia": 21,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CAPTOR",
+    "principioActivo": "GLUTEN DE MAIZ HIDROLIZADO",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "VAPOR GARD",
+    "principioActivo": "PINOLENO",
+    "tipoProducto": "Regulador de crecimiento",
+    "carencia": 1,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "DANISIS",
+    "principioActivo": "FENPIROXIMATO",
+    "tipoProducto": "Acaricida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "BORDELES AGROREGIONAL",
+    "principioActivo": "CALDO BORDELES (sulf.tetracúprico tricálcico)",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CUPROUX 50",
+    "principioActivo": "OXIDO CUPROSO",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "STROBY SC",
+    "principioActivo": "KRESOXIM METIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 45,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "QUICK 250 EC",
+    "principioActivo": "PROPICONAZOL",
+    "tipoProducto": "Fungicida",
+    "carencia": 30,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "TRIRAN FA",
+    "principioActivo": "CIHEXATIN",
+    "tipoProducto": "Acaricida",
+    "carencia": 30,
+    "estado": "Uso Prohibido"
+  },
+  {
+    "nombre": "GIBERELAN 36",
+    "principioActivo": "ACIDO GIBERELICO",
+    "tipoProducto": "Regulador de crecimiento",
+    "carencia": 1,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ORIUS 25 EW",
+    "principioActivo": "TEBUCONAZOL",
+    "tipoProducto": "Fungicida",
+    "carencia": 20,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "QUADRIS",
+    "principioActivo": "AZOXISTROBINA",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "MICROCAP M 450",
+    "principioActivo": "PARATION METIL",
+    "tipoProducto": "Insecticida",
+    "carencia": 35,
+    "estado": "Uso Prohibido"
+  },
+  {
+    "nombre": "TRACER",
+    "principioActivo": "SPINOSAD (Espinosin A + Espinosin D)",
+    "tipoProducto": "Insecticida",
+    "carencia": 3,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "PIONIER 4129",
+    "principioActivo": "aceite mineral",
+    "tipoProducto": "Insecticida",
+    "carencia": 1,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "COBRE NORDOX SUPER 75 DF",
+    "principioActivo": "OXIDO CUPROSO",
+    "tipoProducto": "Fungicida",
+    "carencia": 30,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "MERCAPTOTHION BELTRAME",
+    "principioActivo": "MALATION",
+    "tipoProducto": "Insecticida",
+    "carencia": 10,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "IPRODIONEX 500",
+    "principioActivo": "IPRODIONA",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CHECK PLUS",
+    "principioActivo": "GLIFOSATO ACIDO",
+    "tipoProducto": "Herbicida",
+    "carencia": 5,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "RIMON 10 EC",
+    "principioActivo": "NOVALURON",
+    "tipoProducto": "Insecticida",
+    "carencia": 30,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "PROZIM S.C.",
+    "principioActivo": "CARBENDAZIMA",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "TECTO 500 SC",
+    "principioActivo": "TIABENDAZOL",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "KARATE CON TECNOLOGIA ZEON",
+    "principioActivo": "LAMBDA CIALOTRINA",
+    "tipoProducto": "Insecticida",
+    "carencia": 4,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "OXI-CUP QUIMETAL WG",
+    "principioActivo": "OXICLORURO DE COBRE",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "CALDO BORDELES FANAPROQUI",
+    "principioActivo": "EQUIVALENTE EN COBRE",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CALDO BORDELES FLOWABLE FANAPROQUI",
+    "principioActivo": "EQUIVALENTE EN COBRE",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "RAVYON 85 WP",
+    "principioActivo": "CARBARIL",
+    "tipoProducto": "Insecticida",
+    "carencia": 3,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "NATURAL SHINE 2015-EU",
+    "principioActivo": "CERA CARNAUBA",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "SHIELD BRITE AC-2000",
+    "principioActivo": "CERA CARNAUBA",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ZETA 500 SC",
+    "principioActivo": "CLOROTALONIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "PAMPA",
+    "principioActivo": "GLIFOSATO, SAL ISOPROPILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "MYTHOS",
+    "principioActivo": "PIRIMETANIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "SHIELD LIQUID DPA 31%",
+    "principioActivo": "DIFENILAMINA",
+    "tipoProducto": "Regulador de crecimiento",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "FACILY 18 EC CIBELES",
+    "principioActivo": "ABAMECTINA",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "NOMOLT SC",
+    "principioActivo": "TEFLUBENZURON",
+    "tipoProducto": "Insecticida",
+    "carencia": 21,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "TOMAHAWK 200 EC",
+    "principioActivo": "FLUROXIPIR-MEPTIL",
+    "tipoProducto": "Herbicida",
+    "carencia": 45,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "TWISTER 25 EC",
+    "principioActivo": "CIPERMETRIN",
+    "tipoProducto": "Insecticida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CIBRANIL 500 F",
+    "principioActivo": "CLOROTALONIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "DIURON AGRO REGIONAL",
+    "principioActivo": "DIURON",
+    "tipoProducto": "Herbicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "OXICLORURO DE COBRE AGRO REGIONAL",
+    "principioActivo": "OXICLORURO DE COBRE",
+    "tipoProducto": "Fungicida",
+    "carencia": 21,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "PIONIER 2055",
+    "principioActivo": "aceite mineral",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "SANCOZEB 80 PM",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 10,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "TIABENDAZOL 500 CIBELES",
+    "principioActivo": "TIABENDAZOL",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ALANTO 480 SC",
+    "principioActivo": "TIACLOPRID",
+    "tipoProducto": "Insecticida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ARDENT 50 SC",
+    "principioActivo": "KRESOXIM METIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 35,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CAPTAN FLOW AGRO REGIONAL",
+    "principioActivo": "CAPTAN",
+    "tipoProducto": "Fungicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "SCORE 250 EC",
+    "principioActivo": "DIFENOCONAZOL",
+    "tipoProducto": "Fungicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "MATCH EC",
+    "principioActivo": "LUFENURON",
+    "tipoProducto": "Insecticida",
+    "carencia": 21,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "INTREPID SC",
+    "principioActivo": "METOXIFENOCIDA",
+    "tipoProducto": "Insecticida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "AGROZEB 80 WP",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "AZOLE 5 SC",
+    "principioActivo": "HEXACONAZOL",
+    "tipoProducto": "Fungicida",
+    "carencia": 21,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "MINALAN 20 SL",
+    "principioActivo": "ACETAMIPRID",
+    "tipoProducto": "Insecticida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "VERTILAN 1.8 CE",
+    "principioActivo": "ABAMECTINA",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ZETAMIPRID 200 G/L SL",
+    "principioActivo": "ACETAMIPRID",
+    "tipoProducto": "Insecticida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ZERO 50 EC",
+    "principioActivo": "LAMBDA CIALOTRINA",
+    "tipoProducto": "Insecticida",
+    "carencia": 4,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "HELOSATE",
+    "principioActivo": "GLIFOSATO, SAL ISOPROPILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 21,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "SULFOVIT 80 WDG",
+    "principioActivo": "AZUFRE",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "DODIN FLO",
+    "principioActivo": "DODINE",
+    "tipoProducto": "Fungicida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "SANCOZEB 75 WDG",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 10,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "FLINT 50 WG",
+    "principioActivo": "TRIFLOXISTROBINA",
+    "tipoProducto": "Fungicida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "SUPERZIM 50 SC",
+    "principioActivo": "CARBENDAZIMA",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "SYSTHANE 40 WP",
+    "principioActivo": "MICLOBUTANIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ULTRATION 40",
+    "principioActivo": "METIDATION",
+    "tipoProducto": "Insecticida",
+    "carencia": 14,
+    "estado": "Uso Prohibido"
+  },
+  {
+    "nombre": "DECIS  FORTE 10 EC",
+    "principioActivo": "DELTAMETRIN",
+    "tipoProducto": "Insecticida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "IMAZIL 50 CE",
+    "principioActivo": "IMAZALIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "DIAZIN 500 EC",
+    "principioActivo": "DIAZINON",
+    "tipoProducto": "Insecticida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ULTRATOP",
+    "principioActivo": "SIMAZINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "MAVRIK 240 EW",
+    "principioActivo": "tau FLUVALINATO",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 28,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "SYLLIT 400 SC",
+    "principioActivo": "DODINE",
+    "tipoProducto": "Fungicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ABRIL 50 SC",
+    "principioActivo": "IPRODIONA",
+    "tipoProducto": "Fungicida",
+    "carencia": 3,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "GLISERB LS NF",
+    "principioActivo": "GLIFOSATO, SAL ISOPROPILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "FULLBACK 480 S.C.",
+    "principioActivo": "TRIFLUMURON",
+    "tipoProducto": "Insecticida",
+    "carencia": 10,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "SUPERQUAT",
+    "principioActivo": "DICLORURO DE PARAQUAT",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ACRITIN 60 F",
+    "principioActivo": "CIHEXATIN",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 14,
+    "estado": "Uso Prohibido"
+  },
+  {
+    "nombre": "GALIGAN 240 CE",
+    "principioActivo": "OXIFLUORFEN",
+    "tipoProducto": "Herbicida",
+    "carencia": 60,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "SAU-GIB TABLETAS",
+    "principioActivo": "ACIDO GIBERELICO",
+    "tipoProducto": "Regulador de crecimiento",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "AGRIPROXYFEN",
+    "principioActivo": "PIRIPROXIFEN",
+    "tipoProducto": "Insecticida",
+    "carencia": 45,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "AGROFURE",
+    "principioActivo": "AZUFRE",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ACTIVO 250 EC",
+    "principioActivo": "DIFENOCONAZOL",
+    "tipoProducto": "Fungicida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ESCOLTA",
+    "principioActivo": "TRIFLUMURON",
+    "tipoProducto": "Insecticida",
+    "carencia": 10,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "PRODIGY 1.8 EC",
+    "principioActivo": "ABAMECTINA",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "AMECTIN",
+    "principioActivo": "ABAMECTINA",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 10,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ORION 25 EW",
+    "principioActivo": "TEBUCONAZOL",
+    "tipoProducto": "Fungicida",
+    "carencia": 35,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "FOCUS",
+    "principioActivo": "PIRIPROXIFEN",
+    "tipoProducto": "Insecticida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CIURON 500",
+    "principioActivo": "DIURON",
+    "tipoProducto": "Herbicida",
+    "carencia": 24,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "MANCOZATE",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "SUNSPRAY 9 E",
+    "principioActivo": "aceite mineral",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "TRIAD 50 WG",
+    "principioActivo": "KRESOXIM METIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "LANNARK 250 EC",
+    "principioActivo": "DIFENOCONAZOL",
+    "tipoProducto": "Fungicida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "KIPPEN 5 SC",
+    "principioActivo": "HEXACONAZOL",
+    "tipoProducto": "Fungicida",
+    "carencia": 21,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "SUPRA 40 EC",
+    "principioActivo": "METIDATION",
+    "tipoProducto": "Insecticida",
+    "carencia": 30,
+    "estado": "Uso Prohibido"
+  },
+  {
+    "nombre": "ACETAMIPRID 20 SP",
+    "principioActivo": "ACETAMIPRID",
+    "tipoProducto": "Insecticida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "TRIBEL MULTIUSO",
+    "principioActivo": "aceite mineral",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "LAMBDA 5 LSA",
+    "principioActivo": "LAMBDA CIALOTRINA",
+    "tipoProducto": "Insecticida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "OVIS",
+    "principioActivo": "PIRIPROXIFEN",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ACELAN 20",
+    "principioActivo": "ACETAMIPRID",
+    "tipoProducto": "Insecticida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "VIGIA",
+    "principioActivo": "ABAMECTINA",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 28,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "DIFLULIN CIB 48 SC®",
+    "principioActivo": "DIFLUBENZURON",
+    "tipoProducto": "Insecticida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "RONDO AMONIO",
+    "principioActivo": "GLIFOSATO, SAL AMONICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "RONDO",
+    "principioActivo": "GLIFOSATO, SAL ISOPROPILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "ORTHOCIDE 80 WDG",
+    "principioActivo": "CAPTAN",
+    "tipoProducto": "Fungicida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "FOLDAN 80 WDG",
+    "principioActivo": "FOLPET",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "UTHANE 80%",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 10,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "ESCOZATE",
+    "principioActivo": "DIFENOCONAZOL",
+    "tipoProducto": "Fungicida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "SULFAGRO 80% WDG",
+    "principioActivo": "AZUFRE",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "POWER RANGO",
+    "principioActivo": "GLIFOSATO, SAL POTÁSICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "FATTOR 25 EC",
+    "principioActivo": "CIPERMETRIN",
+    "tipoProducto": "Insecticida",
+    "carencia": 30,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "NION 48 S.C.",
+    "principioActivo": "TRIFLUMURON",
+    "tipoProducto": "Insecticida",
+    "carencia": 28,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "PRODURE 50 S.C.",
+    "principioActivo": "PROCIMIDONA",
+    "tipoProducto": "Fungicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "PANZER GOLD",
+    "principioActivo": "GLIFOSATO, SAL DIMETILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "ULTRAVIN 4 L",
+    "principioActivo": "CARBARIL",
+    "tipoProducto": "Insecticida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "VENTHOS S.C.",
+    "principioActivo": "PIRIMETANIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 28,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ABAMECTINA 1.8 AGROREGIONAL",
+    "principioActivo": "ABAMECTINA",
+    "tipoProducto": "Insecticida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "SEIZER 10 EC",
+    "principioActivo": "BIFENTRIN",
+    "tipoProducto": "Insecticida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ANA",
+    "principioActivo": "ACIDO L-NAFTIL ACÉTICO SAL POTÁSICO",
+    "tipoProducto": "Regulador de crecimiento",
+    "carencia": 2,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "UTHANE 75 DF",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CYANAMIDA HIDROGENADA AGROREGIONAL",
+    "principioActivo": "CIANAMIDA HIDROGENADA",
+    "tipoProducto": "Regulador de crecimiento",
+    "carencia": 30,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CAPTAN 80 AGROREGIONAL",
+    "principioActivo": "CAPTAN",
+    "tipoProducto": "Fungicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "PHALTAN 80 WDG",
+    "principioActivo": "FOLPET",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ISOMATTE CTT",
+    "principioActivo": "DODECADIENOL",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ISOMATE OFM TT",
+    "principioActivo": "Z-8-DODECEN-1-IL ACETATO",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "PYRUS 400 SC",
+    "principioActivo": "PIRIMETANIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "MANCOZEB AGRO REGIONAL 75 WDG",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 10,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "UNIQUAT",
+    "principioActivo": "DICLORURO DE PARAQUAT",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "BANCO 500 FW",
+    "principioActivo": "CLOROTALONIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "MANZATE 75 DF",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "PERRINPIT",
+    "principioActivo": "CALCIO, CLORURO",
+    "tipoProducto": "Regulador de crecimiento",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "GLISERB SUPRA III",
+    "principioActivo": "GLIFOSATO, SAL POTÁSICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 5,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ASPILAN 20 SL",
+    "principioActivo": "ACETAMIPRID",
+    "tipoProducto": "Insecticida",
+    "carencia": 3,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "DESTROYER",
+    "principioActivo": "PIRIPROXIFEN",
+    "tipoProducto": "Insecticida",
+    "carencia": 45,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "SAUQUAT SUPER",
+    "principioActivo": "DICLORURO DE PARAQUAT",
+    "tipoProducto": "Herbicida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "EFUZIN 400 SC",
+    "principioActivo": "DODINE",
+    "tipoProducto": "Fungicida",
+    "carencia": 10,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "BAICEN",
+    "principioActivo": "MATRINE",
+    "tipoProducto": "Insecticida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "PRO FOLPET 50 SC",
+    "principioActivo": "FOLPET",
+    "tipoProducto": "Fungicida",
+    "carencia": 1,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "PRO CAPTAN 50 SC",
+    "principioActivo": "CAPTAN",
+    "tipoProducto": "Fungicida",
+    "carencia": 1,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "YPF CURAFRUTAL LV",
+    "principioActivo": "aceite mineral",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 30,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "IMIDAN 70",
+    "principioActivo": "FOSMET",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 20,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CENTINELA 75 DF",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "SAUTOP 90 WG",
+    "principioActivo": "SIMAZINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 45,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "SPONSOR 50 WG",
+    "principioActivo": "KRESOXIM METIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 35,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "UNIZEB",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 10,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "UNIZEB GOLD",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 10,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "BELT",
+    "principioActivo": "FLUBENDIAMIDE",
+    "tipoProducto": "Insecticida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "BESTOX",
+    "principioActivo": "BIFENTRIN",
+    "tipoProducto": "Insecticida",
+    "carencia": 30,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CAPTURE 100",
+    "principioActivo": "BIFENTRIN",
+    "tipoProducto": "Insecticida",
+    "carencia": 30,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ALLEGIANCE 80 WG",
+    "principioActivo": "CAPTAN",
+    "tipoProducto": "Fungicida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "SOUFRE 80 WG",
+    "principioActivo": "AZUFRE",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "CHECK MAX",
+    "principioActivo": "GLIFOSATO, SAL MONOAMÓNICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 5,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "ZIMBA 80 WP",
+    "principioActivo": "TERBACILO",
+    "tipoProducto": "Herbicida",
+    "carencia": 3,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "CHECKMATE PUFFER CM-OFM",
+    "principioActivo": "DODECADIENOL",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "CIBENCARB 500 FLOW",
+    "principioActivo": "CARBENDAZIMA",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "SUPERLATE",
+    "principioActivo": "BENOMIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "FACILY 3,6",
+    "principioActivo": "ABAMECTINA",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "MICROTHIOL SPECIAL DISPERSS",
+    "principioActivo": "AZUFRE",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "CARBARILUM",
+    "principioActivo": "CARBARIL",
+    "tipoProducto": "Insecticida",
+    "carencia": 5,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CERATITIS TRAP",
+    "principioActivo": "PROTEINAS HIDROLIZADAS",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "RIMON SUPRA 100 SC",
+    "principioActivo": "NOVALURON",
+    "tipoProducto": "Insecticida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "RIDOWN",
+    "principioActivo": "GLIFOSATO, SAL ISOPROPILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GEA GLIFOSATO AMONICO 75.7 SG",
+    "principioActivo": "GLIFOSATO, SAL AMONICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "BRACONIL 720 SC",
+    "principioActivo": "CLOROTALONIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "PILARICH 750 WP",
+    "principioActivo": "CLOROTALONIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "F.T. FOL 25 SC",
+    "principioActivo": "FLUTRIAFOL",
+    "tipoProducto": "Fungicida",
+    "carencia": 30,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CHECK GOLD",
+    "principioActivo": "GLIFOSATO, SAL DIMETILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "PRODINOLEO",
+    "principioActivo": "ACEITE DE SOJA",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "PANGARE",
+    "principioActivo": "FLUROXIPIR-MEPTIL",
+    "tipoProducto": "Herbicida",
+    "carencia": 40,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GEA GLIFOSATO POTASICO 66 SL",
+    "principioActivo": "GLIFOSATO, SAL POTÁSICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "AGROCAP 80 WDG",
+    "principioActivo": "CAPTAN",
+    "tipoProducto": "Fungicida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "SPLENDOR 480 S.C",
+    "principioActivo": "TIACLOPRID",
+    "tipoProducto": "Insecticida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "DELEGATE",
+    "principioActivo": "ESPINETORAM",
+    "tipoProducto": "Insecticida",
+    "carencia": 1,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ESKOBA FULL  II",
+    "principioActivo": "GLIFOSATO, SAL POTÁSICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 5,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "RIDOWN PS FULL",
+    "principioActivo": "GLIFOSATO, SAL POTÁSICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GENFOSATO",
+    "principioActivo": "GLIFOSATO, SAL ISOPROPILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GLIFOWEED ® PLATINUM",
+    "principioActivo": "GLIFOSATO, SAL DIMETILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "KILLER 5 EC",
+    "principioActivo": "LAMBDA CIALOTRINA",
+    "tipoProducto": "Insecticida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "RELAMPAGO 500 S.C",
+    "principioActivo": "DODINE",
+    "tipoProducto": "Fungicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "DIMETOFF 40 SC",
+    "principioActivo": "DIMETOATO",
+    "tipoProducto": "Insecticida",
+    "carencia": 21,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "GENQUAT",
+    "principioActivo": "DICLORURO DE PARAQUAT",
+    "tipoProducto": "Herbicida",
+    "carencia": 15,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "KARMEX 90 WDG",
+    "principioActivo": "DIURON",
+    "tipoProducto": "Herbicida",
+    "carencia": 90,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "ZENITH",
+    "principioActivo": "LAMBDA CIALOTRINA",
+    "tipoProducto": "Insecticida",
+    "carencia": 1,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "RHINO 75 WDG",
+    "principioActivo": "CLORANTRANILIPROL",
+    "tipoProducto": "Insecticida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "TRIBOT 50 F",
+    "principioActivo": "IPRODIONA",
+    "tipoProducto": "Fungicida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "FOLPET TAFIREL",
+    "principioActivo": "FOLPET",
+    "tipoProducto": "Fungicida",
+    "carencia": 1,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "FRUITGARD PIR 400",
+    "principioActivo": "PIRIMETANIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 28,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "FOLP 80 WDG",
+    "principioActivo": "FOLPET",
+    "tipoProducto": "Fungicida",
+    "carencia": 80,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "AZUFRATE 80 DF",
+    "principioActivo": "AZUFRE",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CAPTAN TAFIREL",
+    "principioActivo": "CAPTAN",
+    "tipoProducto": "Fungicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "RIAN",
+    "principioActivo": "TIACLOPRID",
+    "tipoProducto": "Insecticida",
+    "carencia": 30,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "RIDOWN 88.8 XTRA",
+    "principioActivo": "GLIFOSATO, SAL AMONICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "RAINQUAT",
+    "principioActivo": "DICLORURO DE PARAQUAT",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CALDO BORDELES VALLES",
+    "principioActivo": "CALDO BORDELES (sulf.tetracúprico tricálcico)",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "TRILLA XTRA",
+    "principioActivo": "DIURON",
+    "tipoProducto": "Herbicida",
+    "carencia": 45,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "GEA TRIFLUMURON 48 SC",
+    "principioActivo": "TRIFLUMURON",
+    "tipoProducto": "Insecticida",
+    "carencia": 28,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "MAXWEED 200 SL",
+    "principioActivo": "DICLORURO DE PARAQUAT",
+    "tipoProducto": "Herbicida",
+    "carencia": 5,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "GLISERB SUN",
+    "principioActivo": "GLIFOSATO, SAL DIMETILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "Novomectin 228 EC",
+    "principioActivo": "BENZOATO EMAMECTINA",
+    "tipoProducto": "Insecticida",
+    "carencia": 3,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "GENMECTIN",
+    "principioActivo": "ABAMECTINA",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GLAMOUR",
+    "principioActivo": "LAMBDA CIALOTRINA",
+    "tipoProducto": "Insecticida",
+    "carencia": 5,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "OSADO",
+    "principioActivo": "METOXIFENOCIDA",
+    "tipoProducto": "Insecticida",
+    "carencia": 3,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "GENADOM",
+    "principioActivo": "DIFENOCONAZOL",
+    "tipoProducto": "Fungicida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "AVENGER",
+    "principioActivo": "METOXIFENOCIDA",
+    "tipoProducto": "Insecticida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "IPRODION 500 SC",
+    "principioActivo": "IPRODIONA",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "MANZATE RAINCOAT 75 DF",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "MANZATE RAINCOAT 80 WP",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 10,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "AZUKA",
+    "principioActivo": "GLIFOSATO, SAL DIMETILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 30,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "BASTNATE",
+    "principioActivo": "GLUFOSINATO DE AMONIO",
+    "tipoProducto": "Herbicida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "BLINDAR 200 SC",
+    "principioActivo": "CLORANTRANILIPROL",
+    "tipoProducto": "Insecticida",
+    "carencia": 1,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "STAR K",
+    "principioActivo": "GLIFOSATO, SAL POTÁSICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "PREMIER 480 SC",
+    "principioActivo": "TIACLOPRID",
+    "tipoProducto": "Insecticida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "DIQUAT SOLARIS 200 SL",
+    "principioActivo": "DICUAT SAL DIBROMURO",
+    "tipoProducto": "Herbicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "GENCOZEB",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "MAESTRO 24% WG",
+    "principioActivo": "LAMBDA CIALOTRINA",
+    "tipoProducto": "Insecticida",
+    "carencia": 21,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "PONCHO 70 WP",
+    "principioActivo": "PROPINEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 21,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ABAMECTINA CALISTER 3.6 CE",
+    "principioActivo": "ABAMECTINA",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "MADEX TWIN",
+    "principioActivo": "GRANULOVIRUS DE CYDIA POMONELLA(CpGv)",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "AKARIL 50 SC",
+    "principioActivo": "FENPIROXIMATO",
+    "tipoProducto": "Acaricida",
+    "carencia": 21,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "UNO 5 CS",
+    "principioActivo": "LAMBDA CIALOTRINA",
+    "tipoProducto": "Insecticida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "TANCAP XTRA",
+    "principioActivo": "CAPTAN",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "SISTEMA 80 WP",
+    "principioActivo": "FOSETIL- ALUMINIO",
+    "tipoProducto": "Fungicida",
+    "carencia": 35,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ARROW 240 EC",
+    "principioActivo": "CLETODIN",
+    "tipoProducto": "Herbicida",
+    "carencia": 8,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "FLECHA 240 CE",
+    "principioActivo": "CLETODIN",
+    "tipoProducto": "Herbicida",
+    "carencia": 8,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "TRIBOT 50 WP",
+    "principioActivo": "IPRODIONA",
+    "tipoProducto": "Fungicida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "LA TIJERETA BOX",
+    "principioActivo": "GLIFOSATO, SAL AMONICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 5,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ENVIRO-SHIELD",
+    "principioActivo": "PINOLENO",
+    "tipoProducto": "Regulador de crecimiento",
+    "carencia": 1,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "TRADITION ACEITE MINERAL",
+    "principioActivo": "aceite mineral",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ABAMET",
+    "principioActivo": "ABAMECTINA",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "SUNSPRAY SUPREME",
+    "principioActivo": "aceite mineral",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "NOVOMECTIN 200 EC",
+    "principioActivo": "BENZOATO EMAMECTINA",
+    "tipoProducto": "Insecticida",
+    "carencia": 3,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CLORANTE 20 SC",
+    "principioActivo": "CLORANTRANILIPROL",
+    "tipoProducto": "Insecticida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "IMPROSATE FULL K",
+    "principioActivo": "GLIFOSATO, SAL POTÁSICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 21,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "PRIAXOR",
+    "principioActivo": "PIRACLOSTROBINA",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "SELENIUM 75 WDG",
+    "principioActivo": "CLORANTRANILIPROL",
+    "tipoProducto": "Insecticida",
+    "carencia": 21,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "FYSIUM®",
+    "principioActivo": "1-METILCICLOPROPENO (1-MCP)",
+    "tipoProducto": "Regulador de crecimiento",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "ZIRAM TAFIREL",
+    "principioActivo": "ZIRAM",
+    "tipoProducto": "Fungicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GLISERB SUN SG",
+    "principioActivo": "GLIFOSATO, SAL DIMETILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "TRIBER XTRA",
+    "principioActivo": "TRIFLUMURON",
+    "tipoProducto": "Insecticida",
+    "carencia": 28,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CUPROFIX 40 WDG",
+    "principioActivo": "SULFATO DE COBRE TRIBÁSICO",
+    "tipoProducto": "Fungicida",
+    "carencia": 1,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "POTENZA GOLD",
+    "principioActivo": "GLIFOSATO, SAL DIMETILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 24,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "KEMAZON",
+    "principioActivo": "DICLORURO DE PARAQUAT",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "REQUIEM 75 WDG",
+    "principioActivo": "CLORANTRANILIPROL",
+    "tipoProducto": "Insecticida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GLYFOSOL GOLD",
+    "principioActivo": "GLIFOSATO, SAL DIMETILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "TOP-OIL",
+    "principioActivo": "aceite mineral",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "PLACA DEGESCH",
+    "principioActivo": "FOSFURO DE MAGNESIO",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "RE TAIN",
+    "principioActivo": "AMINOETOXIVINILGLICINA",
+    "tipoProducto": "Regulador de crecimiento",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CLORANTE 20 FE",
+    "principioActivo": "CLORANTRANILIPROL",
+    "tipoProducto": "Insecticida",
+    "carencia": 1,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "CLORANTE 75 WG",
+    "principioActivo": "CLORANTRANILIPROL",
+    "tipoProducto": "Insecticida",
+    "carencia": 1,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "MAXCEL",
+    "principioActivo": "BENCILADENINA (BAP)",
+    "tipoProducto": "Regulador de crecimiento",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "EXTRAQUAT",
+    "principioActivo": "DICLORURO DE PARAQUAT",
+    "tipoProducto": "Herbicida",
+    "carencia": 48,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "RYNAGEN 200 SC",
+    "principioActivo": "CLORANTRANILIPROL",
+    "tipoProducto": "Insecticida",
+    "carencia": 1,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "BRACONIL 72% FLOW",
+    "principioActivo": "CLOROTALONIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "MASTEROLE",
+    "principioActivo": "METOXIFENOCIDA",
+    "tipoProducto": "Insecticida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "LIFELINE",
+    "principioActivo": "GLUFOSINATO DE AMONIO",
+    "tipoProducto": "Herbicida",
+    "carencia": 35,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "NAVEX",
+    "principioActivo": "TIACLOPRID",
+    "tipoProducto": "Insecticida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "ALCANCE 250 SC",
+    "principioActivo": "TIACLOPRID",
+    "tipoProducto": "Insecticida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "BISECT",
+    "principioActivo": "BIFENTRIN",
+    "tipoProducto": "Insecticida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "TRIBOT 50 SC",
+    "principioActivo": "IPRODIONA",
+    "tipoProducto": "Fungicida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "GLIFOSATO GROWING",
+    "principioActivo": "GLIFOSATO, SAL AMONICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GLISA SUPRA II FE",
+    "principioActivo": "GLIFOSATO, SAL POTÁSICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "WP SUPRA II FE",
+    "principioActivo": "GLIFOSATO, SAL POTÁSICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GLISA SUN FE",
+    "principioActivo": "GLIFOSATO, SAL DIMETILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "CAMPO-GLUF 200 SL",
+    "principioActivo": "GLUFOSINATO DE AMONIO",
+    "tipoProducto": "Herbicida",
+    "carencia": 70,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "WP SUN FE",
+    "principioActivo": "GLIFOSATO, SAL DIMETILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "STRONG 10 SC",
+    "principioActivo": "LAMBDA CIALOTRINA",
+    "tipoProducto": "Insecticida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "MOVENTO®",
+    "principioActivo": "SPIROTETRAMAT",
+    "tipoProducto": "Insecticida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "METEOR 288 EC",
+    "principioActivo": "FLUROXIPIR-MEPTIL",
+    "tipoProducto": "Herbicida",
+    "carencia": 30,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GEA ABAMECTINA 3.6 EC",
+    "principioActivo": "ABAMECTINA",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "GLYFOSOL MAX 88.8",
+    "principioActivo": "GLIFOSATO, SAL AMONICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "TIFON",
+    "principioActivo": "LUFENURON",
+    "tipoProducto": "Insecticida",
+    "carencia": 35,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "GLUFEX 300 SL",
+    "principioActivo": "GLUFOSINATO DE AMONIO",
+    "tipoProducto": "Herbicida",
+    "carencia": 35,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "SPLAT OFM",
+    "principioActivo": "(E)-8-DODECENIL ACETATO",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "SPLAT CYDIA",
+    "principioActivo": "(E,E) - 8 ,10- DODECADIENOL",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "FINAL 200 SL",
+    "principioActivo": "GLUFOSINATO DE AMONIO",
+    "tipoProducto": "Herbicida",
+    "carencia": 70,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "PULSAR GOLD",
+    "principioActivo": "LAMBDA CIALOTRINA",
+    "tipoProducto": "Insecticida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "GRASIDIM FULL",
+    "principioActivo": "CLETODIN",
+    "tipoProducto": "Herbicida",
+    "carencia": 8,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "PAUKER MAX",
+    "principioActivo": "GLIFOSATO, SAL AMONICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 30,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ZILTOP 70% WG",
+    "principioActivo": "METIL TIOFANATO",
+    "tipoProducto": "Fungicida",
+    "carencia": 1,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "FIXTURE 500 SC",
+    "principioActivo": "DIFENOCONAZOL",
+    "tipoProducto": "Fungicida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "FUNGI-ZEB 75 WDG",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "PYRIPROXYFEN CEM",
+    "principioActivo": "PIRIPROXIFEN",
+    "tipoProducto": "Insecticida",
+    "carencia": 48,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ACAREX PLUS",
+    "principioActivo": "HEXITIAZOX",
+    "tipoProducto": "Acaricida",
+    "carencia": 30,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "FLUMIO 480 SC",
+    "principioActivo": "FLUMIOXAZINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 20,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "REVELACION",
+    "principioActivo": "BOSCALID",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "AGROXIPIR 288 EC",
+    "principioActivo": "FLUROXIPIR-MEPTIL",
+    "tipoProducto": "Herbicida",
+    "carencia": 45,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "BLINDAR 75 WG",
+    "principioActivo": "CLORANTRANILIPROL",
+    "tipoProducto": "Insecticida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "POWER ALB",
+    "principioActivo": "GLIFOSATO, SAL POTÁSICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CLOSER",
+    "principioActivo": "SULFOXAFLOR",
+    "tipoProducto": "Insecticida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "AGROZEB FLO",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ATHION 45 EC",
+    "principioActivo": "MALATION",
+    "tipoProducto": "Insecticida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "DINON 50 EC",
+    "principioActivo": "DIAZINON",
+    "tipoProducto": "Insecticida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "GLIFULL-K 83.3 SG",
+    "principioActivo": "GLIFOSATO, SAL POTÁSICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "PILARXONE",
+    "principioActivo": "DICLORURO DE PARAQUAT",
+    "tipoProducto": "Herbicida",
+    "carencia": 24,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "FUNGICAP 480 SC",
+    "principioActivo": "CAPTAN",
+    "tipoProducto": "Fungicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "PARAQUAT 276 TAMPA",
+    "principioActivo": "DICLORURO DE PARAQUAT",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CLETOSUPER",
+    "principioActivo": "CLETODIN",
+    "tipoProducto": "Herbicida",
+    "carencia": 60,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "OBULUS",
+    "principioActivo": "LAMBDA CIALOTRINA",
+    "tipoProducto": "Insecticida",
+    "carencia": 21,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ACE 20 SL",
+    "principioActivo": "ACETAMIPRID",
+    "tipoProducto": "Insecticida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "FULL SOJA 480 G/L",
+    "principioActivo": "FLUMIOXAZINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "UNICORN",
+    "principioActivo": "AZUFRE",
+    "tipoProducto": "Fungicida",
+    "carencia": 35,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "POTENZA ULTRA II",
+    "principioActivo": "GLIFOSATO, SAL AMONICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 30,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "SINBAR 80 WDG",
+    "principioActivo": "TERBACILO",
+    "tipoProducto": "Herbicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "BRANDO",
+    "principioActivo": "METIL TIOFANATO",
+    "tipoProducto": "Fungicida",
+    "carencia": 1,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "GLIFUMAX",
+    "principioActivo": "GLIFOSATO, SAL AMONICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "GLIFUPOWER",
+    "principioActivo": "GLIFOSATO, SAL POTÁSICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CLORONIL 50",
+    "principioActivo": "CLOROTALONIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 30,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "PANZER GOLD ALB",
+    "principioActivo": "GLIFOSATO, SAL DIMETILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "STAR DMA 80 SG",
+    "principioActivo": "GLIFOSATO, SAL DIMETILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 21,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "FLUMITOP 480 SC",
+    "principioActivo": "FLUMIOXAZINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "WALLOPER",
+    "principioActivo": "FLUROXIPIR-MEPTIL",
+    "tipoProducto": "Herbicida",
+    "carencia": 45,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "1-MCP POWER",
+    "principioActivo": "1-METILCICLOPROPENO (1-MCP)",
+    "tipoProducto": "Regulador de crecimiento",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "SIMAPLEX 90 WDG",
+    "principioActivo": "SIMAZINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 45,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "BOTRIX",
+    "principioActivo": "BOSCALID",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "TOTAL PS 22",
+    "principioActivo": "aceite mineral",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "FLAME 200 SL",
+    "principioActivo": "GLUFOSINATO DE AMONIO",
+    "tipoProducto": "Herbicida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "MICROGLIF K",
+    "principioActivo": "GLIFOSATO, SAL POTÁSICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 21,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "FLUROXYPYR FORTE 480",
+    "principioActivo": "FLUROXIPIR-MEPTIL",
+    "tipoProducto": "Herbicida",
+    "carencia": 45,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "CIDETRAK OFM-L",
+    "principioActivo": "Z-8-DODECEN-1-IL ACETATO",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GEA PARAQUAT 200 SL",
+    "principioActivo": "DICLORURO DE PARAQUAT",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "RESTARTER",
+    "principioActivo": "GLUFOSINATO DE AMONIO",
+    "tipoProducto": "Herbicida",
+    "carencia": 21,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "CLOROTALONIL SOLARIS 720 SC",
+    "principioActivo": "CLOROTALONIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 21,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "STRADA 88 SG",
+    "principioActivo": "GLUFOSINATO DE AMONIO",
+    "tipoProducto": "Herbicida",
+    "carencia": 70,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "XYFEN",
+    "principioActivo": "PIRIPROXIFEN",
+    "tipoProducto": "Insecticida",
+    "carencia": 21,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "RIVAL 90 WDG",
+    "principioActivo": "CLOROTALONIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GEA HALOXIFOP METIL 540 EC",
+    "principioActivo": "HALOXIFOP-P-METIL",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "FLUMYZIN 500 SC",
+    "principioActivo": "FLUMIOXAZINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "POINTER 500",
+    "principioActivo": "FLUTRIAFOL",
+    "tipoProducto": "Fungicida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "DITHIALAN 75 WDG",
+    "principioActivo": "DITIANON",
+    "tipoProducto": "Fungicida",
+    "carencia": 21,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "BOSPYR",
+    "principioActivo": "BOSCALID",
+    "tipoProducto": "Fungicida",
+    "carencia": 1,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "FIPRO-MAX",
+    "principioActivo": "FIPRONIL",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "TRIFLUMIC 480 SC",
+    "principioActivo": "TRIFLUMURON",
+    "tipoProducto": "Insecticida",
+    "carencia": 28,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "BETK - 03",
+    "principioActivo": "BACILLUS THURINGIENSIS CEPA 1",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "KUNG-FU 75",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "GEA GLIFOSATO AMONICO 88.8 SG",
+    "principioActivo": "GLIFOSATO, SAL AMONICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 5,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "GEA MANCOZEB 80 WP",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "AGROZEB 75 WG",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "TURICIB 32 WP",
+    "principioActivo": "Bacillus thuringiensis var. Kurstaki cepa CGMMCC No. 1.1014",
+    "tipoProducto": "Insecticida",
+    "carencia": 3,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "AVERMIC 18",
+    "principioActivo": "ABAMECTINA",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 3,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "ARTEMIS",
+    "principioActivo": "PIRIPROXIFEN",
+    "tipoProducto": "Insecticida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "GEA CLETHODIM 240 EC",
+    "principioActivo": "CLETODIN",
+    "tipoProducto": "Herbicida",
+    "carencia": 65,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "ESCOLTA 80 WG",
+    "principioActivo": "TRIFLUMURON",
+    "tipoProducto": "Insecticida",
+    "carencia": 28,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CLOROMIC 720 SC",
+    "principioActivo": "CLOROTALONIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "SLOW MAT 150 OD",
+    "principioActivo": "SPIROTETRAMAT",
+    "tipoProducto": "Insecticida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CLEANOUT",
+    "principioActivo": "DICUAT SAL DIBROMURO",
+    "tipoProducto": "Herbicida",
+    "carencia": 3,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "AZUKA FULL",
+    "principioActivo": "GLIFOSATO, SAL DIMETILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 30,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "IMPROSATE 88.8",
+    "principioActivo": "GLIFOSATO, SAL AMONICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 30,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "STRADA 200 SL",
+    "principioActivo": "GLUFOSINATO DE AMONIO",
+    "tipoProducto": "Herbicida",
+    "carencia": 70,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "CLORANTRAMIC 75 WG",
+    "principioActivo": "CLORANTRANILIPROL",
+    "tipoProducto": "Insecticida",
+    "carencia": 14,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "MANCOMIC 430 SC",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 21,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "MESSENGER 120 EC",
+    "principioActivo": "SPIROTETRAMAT",
+    "tipoProducto": "Insecticida",
+    "carencia": 21,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "DIQUAT TAFIREL",
+    "principioActivo": "DICUAT SAL DIBROMURO",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "LUNA TRANQUILITY SC 500",
+    "principioActivo": "PIRIMETANIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 72,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "PROZIRAM 80%",
+    "principioActivo": "ZIRAM",
+    "tipoProducto": "Fungicida",
+    "carencia": 20,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "ISOMATE CM FLEX",
+    "principioActivo": "DODECANOL",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "AVANT 70 WDG",
+    "principioActivo": "SAFLUFENACIL",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "FANAZEB 80 PM",
+    "principioActivo": "MANCOZEB",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Renovacion"
+  },
+  {
+    "nombre": "SEQUAT 200 SL",
+    "principioActivo": "DICUAT SAL DIBROMURO",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "CIDETRAK CM OFM DUO MESO",
+    "principioActivo": "Z-8-DODECEN-1-IL ACETATO",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "FANACUP 75",
+    "principioActivo": "OXIDO CUPROSO",
+    "tipoProducto": "Fungicida",
+    "carencia": 30,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "CHECKMATE PUFFER OFM",
+    "principioActivo": "(Z)-8-DODECEN-1-YL-ACETATE",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "FOLTAN 80 WG",
+    "principioActivo": "FOLPET",
+    "tipoProducto": "Fungicida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "DECCOFLUDI 230 SC",
+    "principioActivo": "FLUDIOXONILO",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "COLBAN 5 G",
+    "principioActivo": "METALDEHIDO",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GS GLIFOSATO DMA 608 G/L SL",
+    "principioActivo": "GLIFOSATO SAL DIMETILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GS GLIFOSATO 75,7% SG",
+    "principioActivo": "GLIFOSATO, SAL AMONICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 5,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "CAMPERO GOLD 88 SG",
+    "principioActivo": "GLIFOSATO, SAL MONOAMÓNICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 21,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "WEEDFIRE",
+    "principioActivo": "DICUAT SAL DIBROMURO",
+    "tipoProducto": "Herbicida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "MCPA 75 TAFIREL",
+    "principioActivo": "MCPA, SAL DIMETILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 30,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "NO SCALD DPA",
+    "principioActivo": "DIFENILAMINA",
+    "tipoProducto": "Regulador de crecimiento",
+    "carencia": 2,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GLISERB SUN SG II",
+    "principioActivo": "GLIFOSATO SAL DIMETILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 24,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GLIFA DMA 608 SL",
+    "principioActivo": "GLIFOSATO, SAL DIMETILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "ALRAS",
+    "principioActivo": "GLIFOSATO, SAL DIMETILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "TANCAT",
+    "principioActivo": "GLIFOSATO, SAL AMONICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 5,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "DECCO TBZ 50 SC",
+    "principioActivo": "TIABENDAZOL",
+    "tipoProducto": "Fungicida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "PIRIPROX AGRO",
+    "principioActivo": "PIRIPROXIFEN",
+    "tipoProducto": "Insecticida",
+    "carencia": 45,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GLIFOHODO 662",
+    "principioActivo": "GLIFOSATO, SAL POTÁSICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GLIFOHODO 888",
+    "principioActivo": "GLIFOSATO ACIDO",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GLIFOHODO DMA",
+    "principioActivo": "GLIFOSATO, SAL DIMETILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GLIFA 75.7 SG",
+    "principioActivo": "GLIFOSATO, SAL AMONICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "IMPIDE",
+    "principioActivo": "ACIDOS GRASOS, SAL POTASICA",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "ABAMECTIN 72 EC NORTOX",
+    "principioActivo": "ABAMECTINA",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "PILARSATO SUPER",
+    "principioActivo": "GLIFOSATO, SAL ISOPROPILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GLUFHODO 200",
+    "principioActivo": "GLUFOSINATO DE AMONIO",
+    "tipoProducto": "Herbicida",
+    "carencia": 21,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "MEGA-GLI K",
+    "principioActivo": "GLIFOSATO, SAL POTÁSICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "MEGA - GLI IPA",
+    "principioActivo": "GLIFOSATO, SAL ISOPROPILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "CLETOFIN",
+    "principioActivo": "CLETODIN",
+    "tipoProducto": "Herbicida",
+    "carencia": 60,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "CHECK TOP",
+    "principioActivo": "GLIFOSATO, SAL MONOAMÓNICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "AGROMURON",
+    "principioActivo": "TRIFLUMURON",
+    "tipoProducto": "Insecticida",
+    "carencia": 10,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "ZETAMIPRID 70 WG",
+    "principioActivo": "ACETAMIPRID",
+    "tipoProducto": "Insecticida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "MEGA-GLI 88.8",
+    "principioActivo": "GLIFOSATO, SAL AMONICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "MOLUSQUICIDA CLARTEX",
+    "principioActivo": "METALDEHIDO",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "TEMPO 420 SC",
+    "principioActivo": "PYROXASULFONE",
+    "tipoProducto": "Herbicida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "DIQUAFIN",
+    "principioActivo": "DICUAT SAL DIBROMURO",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GLIFULL-K 66 SL",
+    "principioActivo": "GLIFOSATO, SAL POTÁSICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "HALVETIC",
+    "principioActivo": "GLIFOSATO, SAL ISOPROPILAMINA",
+    "tipoProducto": "Herbicida",
+    "carencia": 45,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "NATURCOVER CONSERVACION EXTRA",
+    "principioActivo": "ESTERES DE ACIDOS GRASOS CON SACAROSA",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "NOGRAM 540 EC",
+    "principioActivo": "HALOXIFOP-P-METIL",
+    "tipoProducto": "Herbicida",
+    "carencia": 15,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "BRAVO 48",
+    "principioActivo": "PYROXASULFONE",
+    "tipoProducto": "Herbicida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "LIFELINE MEGA",
+    "principioActivo": "L - GLUFOSINATO DE AMONIO",
+    "tipoProducto": "Herbicida",
+    "carencia": 70,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "FORZA CE",
+    "principioActivo": "SAFLUFENACIL",
+    "tipoProducto": "Herbicida",
+    "carencia": 95,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "SEPTA",
+    "principioActivo": "SPINOSAD (Espinosin A + Espinosin D)",
+    "tipoProducto": "Insecticida",
+    "carencia": 1,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "GLIFOTEC 88.8 SG",
+    "principioActivo": "GLIFOSATO, SAL MONOAMÓNICA",
+    "tipoProducto": "Herbicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "FUNCAP 80 WG",
+    "principioActivo": "CAPTAN",
+    "tipoProducto": "Fungicida",
+    "carencia": 7,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "AGROFOLPET 80",
+    "principioActivo": "FOLPET",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "ESTEN 80",
+    "principioActivo": "MEZCLA DE GLICERIDOS DE ACEITE VEGETAL, JABONES DE POTASIO Y SUCROGLICERIDOS",
+    "tipoProducto": "Insecticida-Acaricida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "FIPROMIC RB",
+    "principioActivo": "FIPRONIL",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "MIBELYA",
+    "principioActivo": "FLUXAPIROXAD",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "MAGISTER 200 SC",
+    "principioActivo": "FENAZAQUIN",
+    "tipoProducto": "Acaricida",
+    "carencia": 30,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "DECCOPYR 40 SC",
+    "principioActivo": "PIRIMETANIL",
+    "tipoProducto": "Fungicida",
+    "carencia": 14,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "CITRASHINE VEGETAL",
+    "principioActivo": "CERA CARNAUBA",
+    "tipoProducto": "Insecticida",
+    "carencia": 0,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "OMEGA",
+    "principioActivo": "PIRACLOSTROBINA",
+    "tipoProducto": "Fungicida",
+    "carencia": 15,
+    "estado": "Autorizado"
+  },
+  {
+    "nombre": "FINACIL XTRA",
+    "principioActivo": "SAFLUFENACIL",
+    "tipoProducto": "Herbicida",
+    "carencia": 20,
+    "estado": "Autorizado"
+  }
+]
